@@ -155,7 +155,7 @@
 
                     <!--VIEW BLOOD TEST-->
                     <div>
-                        <x-modal.card title="View Blood Test" blur wire:model.defer="viewModalTest">
+                        <x-modal.card title="View Blood Test" blur wire:model.defer="viewModalTest" >
                             <div>
                                 <x-table.table>
                                     <x-slot name="thead">
