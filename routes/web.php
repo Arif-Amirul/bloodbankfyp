@@ -16,6 +16,7 @@ use App\Http\Livewire\ViewDonor\ViewDonorPage;
 use App\Http\Livewire\ViewBloodTest\ViewBloodTestPage;
 use App\Http\Livewire\RegisterUser\RegisterUserPage;
 use App\Http\Livewire\Patient\PatientPage;
+use App\Http\Livewire\ViewPatient\ViewPatientPage;
 use App\Http\Livewire\BloodTransfer\BloodTransferPage;
 
 /*
@@ -73,4 +74,5 @@ Route::middleware('auth')->group(function () {
     Route::get('view-blood-test-page', ViewBloodTestPage::class)->name('view-blood-test-page');
     Route::get('register-user-page', RegisterUserPage::class)->name('register-user-page');
     Route::get('blood-transfer-page', BloodTransferPage::class)->name('blood-transfer-page');
+    Route::get('view-patient-page', ViewPatientPage::class)->name('view-patient-page');
 }); 
