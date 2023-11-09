@@ -42,16 +42,6 @@
                                 <x-icon name="user" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
-                      
-                        <!--<x-sidebar.nav-item
-                            title="Add Blood Test"
-                            activeUrl="blood-test-page"
-                            route="{{route('blood-test-page')}}"
-                        >
-                            <x-slot name="iconName">
-                                <x-icon name="document-add" class="w-6 h-6"/>
-                            </x-slot>
-                        </x-sidebar.nav-item>-->
 
                         <x-sidebar.nav-item
                             title="Add Patient"
@@ -74,6 +64,16 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
+                            title="Manage Patient"
+                            activeUrl="view-patient-page"
+                            route="{{route('view-patient-page')}}"
+                        >
+                            <x-slot name="iconName">
+                                <x-icon name="folder" class="w-6 h-6"/>
+                            </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
                             title="Manage Blood Transfer"
                             activeUrl="blood-transfer-page"
                             route="{{route('blood-transfer-page')}}"
@@ -82,19 +82,7 @@
                                 <x-icon name="truck" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
-                        
-                       <!-- <x-sidebar.nav-item
-                            title="Manage Blood Test"
-                            activeUrl="view-blood-test-page"
-                            route="{{route('view-blood-test-page')}}"
-                        >
-                            <x-slot name="iconName">
-                                <x-icon name="folder" class="w-6 h-6"/>
-                            </x-slot>
-                        </x-sidebar.nav-item>
-                        -->
-                        
-                        
+
                     </ul>
                 </div>
             </div>
