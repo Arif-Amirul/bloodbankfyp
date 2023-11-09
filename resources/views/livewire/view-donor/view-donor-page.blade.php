@@ -2,7 +2,7 @@
     <x-container title="View Donor" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="grid grid-cols-1">
             <div>
-            <x-table.table>
+                <x-table.table>
                     <x-slot name="thead">
                     <x-table.table-header class="text-center" value="Donor ID" sort="" />
                     <x-table.table-header class="text-center" value="Blood Group" sort="" />
@@ -80,6 +80,7 @@
                                     <div class="flex items-center space-x-2">
                                         <x-button class="bg-green-500 text-white" wire:click="openModalUpdate('{{$item->id}}')" label="Update" />
                                         <x-button class="bg-red-500 text-white" wire:click="delete('{{$item->id}}')" label="Delete" />
+                                        <x-button primary label="Save" wire:click="update('{{$item->id}}')" />
                                     </div>
                                 </x-table.table-body>
                             </tr>
@@ -87,14 +88,14 @@
                         </x-slot>
                      </x-table.table>
 
-                    <div>
                         
                     <!--ADD BLOOD TEST-->
                     <div>
                         <x-modal.card title="Add Blood Test" blur wire:model.defer="updateModalTest">
                             
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-1 sm:gap-6">
-                            <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
+                             <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
+                                <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
+                                <x-input type="date" label="Date" wire:model.defer="date" />
                             </div>
                             
                             <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
@@ -146,8 +147,8 @@
 
                             <x-slot name="footer">
                                 <div class="flex justify-end gap-x-4">
-                                    <x-button flat label="Cancel" x-on:click="close" />
-                                    <x-button primary label="Save" wire:click="save" />
+                                    <x-button flat label="Close" x-on:click="close" />
+                                    <x-button primary wire:click="create" label="Save" />
                                 </div>
                             </x-slot>
                         </x-modal.card>        
@@ -164,136 +165,114 @@
                                         <!-- No table header for the "Result" column -->
                                     </x-slot>
                                     <x-slot name="tbody">                             
-                            <tr>
-                                <!-- First column for "Attribute" -->
+                            <tr>                           
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Blood ID</x-table.table-body>
-                                <!-- Second column for "Result" -->
+                                
                                 <x-table.table-body class="text-xs font-medium text-gray-700">12345</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">White blood cells</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Neutrophils</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Red blood cells</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Haemoglobin</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Hematocrit</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">MCV</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Platelets</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">CD4+/CD8+"</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">HIV test</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Glicaemia</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Transferrin</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Ferritim</x-table.table-body>
-                                <!-- Second column for "Result" -->
+ 
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Na+</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">K+</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Ca++</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Plasma proteins</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Albumin</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Prealbumin"</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Gamma globulins</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">ALT</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                             <tr>
-                                <!-- First column for "Attribute" -->
                                 <x-table.table-body class="text-xs font-medium text-gray-700">Gamma GT</x-table.table-body>
-                                <!-- Second column for "Result" -->
+
                                 <x-table.table-body class="text-xs font-medium text-gray-700">7.8</x-table.table-body>
                             </tr>
                                 </x-slot>
@@ -361,15 +340,17 @@
                                     <x-input label="State" placeholder="state" wire:model.defer="state" />
                                     <x-input label="Postal Code" placeholder="postal code" wire:model.defer="postal_code" />
                                 </div>
+                                <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
+                                    <x-input type="date" label="Donation Date" wire:model.defer="donation_date" />
+                                </div>
                                 <x-slot name="footer">
                                     <div class="flex justify-end gap-x-4">
-                                        <x-button flat label="Cancel" x-on:click="close" />
-                                        <x-button primary label="Save" wire:click="update({{$item->id}})" />
-                                    </div>
+                                        <x-button flat label="Close" x-on:click="close" />
+                           
+                                    </div>  
                                 </x-slot>
                         </x-modal.card>
                     <div>
-
                     
             </div>
         </div>

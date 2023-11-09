@@ -4,11 +4,10 @@ namespace App\Http\Livewire\ViewDonor;
 
 use Livewire\Component;
 use App\Models\DonorInformation;
-//use App\Models\BloodInformation;
+use App\Models\BloodInformation;
 
 class ViewDonorPage extends Component
 {
-    //DONOR UPDATE
     public $updateModal = false;
     public $donor_id;
     public $blood_group;
@@ -44,31 +43,30 @@ class ViewDonorPage extends Component
     }
 
     public function update($id){
-         // Find the donor by ID
+        dd($id);    
          $donor = DonorInformation::find($id);
-
-         // Delete the donor
-         $donor->update();
-         $this->donor_id = $donor->donor_id;
-         $this->blood_group = $donor->blood_group;
-         $this->full_name = $donor->full_name;
-         $this->phone_number = $donor->phone_number;
-         $this->marital_status = $donor->marital_status;
-         $this->date = $donor->date;
-         $this->gender = $donor->gender;
-         $this->race = $donor->race;
-         $this->street_address = $donor->street_address;
-         $this->city = $donor->city;
-         $this->state = $donor->state;
-         $this->postal_code = $donor->postal_code;
-         $this->donation_date= $donor->donation_date;
+         
+         $donor->update([
+            'donor_id' => $this->donor_id,
+            'blood_group' => $this->blood_group,
+            'full_name' => $this->full_name,
+            'phone_number' => $this->phone_number,
+            'marital_status' => $this->marital_status,
+            'date' => $this->date,
+            'gender' => $this->gender,
+            'race' => $this->race,
+            'street_address' => $this->street_address,
+            'city' => $this->city,
+            'state' => $this->state,
+            'postal_code' => $this->postal_code,
+            'donation_date' => $this->donation_date,
+        ]);
+         $this->updateModal = false;
     }
 
     public function delete($id){
-         // Find the donor by ID
+        dd($id);
         $donor = DonorInformation::find($id);
-
-        // Delete the donor
         $donor->delete();
         $this->donor_id = $donor->donor_id;
         $this->blood_group = $donor->blood_group;
@@ -85,13 +83,7 @@ class ViewDonorPage extends Component
         $this->donation_date= $donor->donation_date;
     }
 
-
-
-
-
-
-    /*ADD BLOOD TEST
-    public $updateModalTest = false;
+    //ADD BLOOD TEST
     public $blood_id;
     public $white_blood_cells;
     public $neutrophils;
@@ -113,35 +105,7 @@ class ViewDonorPage extends Component
     public $prealbumin;
     public $gamma_globulins;
     public $alt;
-    public $gamma_gt;*/
-
-    /*public function openModalBloodTest($id){
-        $this->updateModalTest = true;
-        $test = BloodInformation::find($id);
-        $this->blood_id = $test->blood_id;
-        $this->white_blood_cells = $test->white_blood_cells;
-        $this->neutrophils = $test->neutrophils;
-        $this->red_blood_cells = $test->red_blood_cells;
-        $this->haemoglobin = $test->haemoglobin;
-        $this->hematrocrit = $test->hematocrit;
-        $this->mcv = $test->mcv;
-        $this->platelets = $test->platelets;
-        $this->cd4_cd8 = $test->cd4_cd8;
-        $this->hiv_test = $test->hiv_test;
-        $this->glicaemia = $test->glicaemia;
-        $this->transferrin = $test->transferrin;
-        $this->ferritim = $test->ferritin;
-        $this->sodium = $test->sodium;
-        $this->potassium = $test->potassium;
-        $this->calcium = $test->calcium;
-        $this->plasma_proteins = $test->plasma_proteins;
-        $this->albumin = $test->albumin;
-        $this->prealbumin = $test->prealbumin;
-        $this->gamma_globulins = $test->gamma_globulins;
-        $this->alt = $test->alt;
-        $this->gamma_gt = $test->gamma_gt;
-
-    }*/
+    public $gamma_gt;
 
     public $updateModalTest = false;
     public $viewModalTest = false;
@@ -153,9 +117,92 @@ class ViewDonorPage extends Component
 
     public function viewModalBloodTest()
     {
+        dd('haha');
         $this->viewModalTest = true;
     }
 
+    public function create() {
+        
+        $this->validate([ 
+            'blood_id' => 'required',
+            'date' => 'required',
+            'white_blood_cells' => 'required',
+            'neutrophils' => 'required',
+            'red_blood_cells'=> 'required',
+            'haemoglobin' => 'required',
+            'hematrocrit' => 'required',
+            'mcv' => 'required',
+            'platelets' => 'required',
+            'cd4_cd8' => 'required',
+            'hiv_test' => 'required',
+            'glicaemia' => 'required',
+            'transferrin' => 'required',
+            'ferritim' => 'required',
+            'sodium'=> 'required',
+            'potassium'=> 'required',
+            'calcium'=> 'required',
+            'plasma_proteins' => 'required',
+            'albumin' => 'required',
+            'prealbumin' => 'required',
+            'gamma_globulins' => 'required',
+            'alt' => 'required',
+            'gamma_gt' => 'required',
+        ]);
+        
+        BloodInformation::create([
+            'user_id' => auth()->user()->id,
+            'blood_id'=> $this->blood_id,
+            'date'=> $this->date,
+            'white_blood_cells'=> $this->white_blood_cells,
+            'neutrophils'=> $this->neutrophils,
+            'red_blood_cells'=> $this->red_blood_cells,
+            'haemoglobin'=> $this->haemoglobin,
+            'hematrocrit'=> $this->hematrocrit,
+            'mcv'=> $this->mcv,
+            'platelets'=> $this->platelets,
+            'cd4_cd8'=> $this->cd4_cd8,
+            'hiv_test'=> $this->hiv_test,
+            'glicaemia'=> $this->glicaemia,
+            'transferrin'=> $this->transferrin,
+            'ferritim'=> $this->ferritim,
+            'sodium'=> $this->sodium,
+            'potassium'=> $this->potassium,
+            'calcium'=> $this->calcium,
+            'plasma_proteins'=> $this->plasma_proteins,
+            'albumin'=> $this->albumin,
+            'prealbumin'=> $this->prealbumin,
+            'gamma_globulins'=> $this->gamma_globulins,
+            'alt'=> $this->alt,
+            'gamma_gt'=> $this->gamma_gt,
+        ]);
+
+        $this->reset([
+            'blood_id',
+            'date',
+            'white_blood_cells',
+            'neutrophils',
+            'red_blood_cells',
+            'haemoglobin',
+            'hematrocrit',
+            'mcv',
+            'platelets',
+            'cd4_cd8',
+            'hiv_test',
+            'glicaemia',
+            'transferrin',
+            'ferritim',
+            'sodium',
+            'potassium',
+            'calcium',
+            'plasma_proteins',
+            'albumin',
+            'prealbumin',
+            'gamma_globulins',
+            'alt',
+            'gamma_gt',
+        ]);
+
+    }
   
 
     public function render()
