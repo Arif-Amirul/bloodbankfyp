@@ -9,15 +9,15 @@
                         <x-table.table-header class="text-center" value="Date" sort="" />
                         <x-table.table-header class="text-center" value="Phone Number" sort="" />
                         <x-table.table-header class="text-center" value="Gender" sort="" />
-                        <x-table.table-header class="text-center" value="Blood Group" sort="" /> 
+                        <x-table.table-header class="text-center" value="Blood Group" sort="" />
                         <x-table.table-header class="text-center" value="Hospital Address" sort="" />
                         <x-table.table-header class="text-center" value="Hospital Name" sort="" />
-                        <x-table.table-header class="text-center" value="Quantity Required" sort="" />
-                        <x-table.table-header class="text-center" value="Edit" sort="" /> 
+                        
+                        <x-table.table-header class="text-center" value="Edit" sort="" />
 
                     </x-slot>
                     <x-slot name="tbody">
-                       
+
                         <tr>
                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
                             1
@@ -62,7 +62,7 @@
                                 </div>
                             </x-table.table-body>
                         </tr>
-                     
+
                     </x-slot>
                 </x-table.table>
             </div>

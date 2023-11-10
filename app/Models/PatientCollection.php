@@ -21,7 +21,6 @@ class PatientCollection extends Model
         'hospital_address',
         'hospital_name',
         'hospital_contact',
-        'quantity_required',
     ];
 
     public function user()

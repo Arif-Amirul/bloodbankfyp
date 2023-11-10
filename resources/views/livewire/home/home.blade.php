@@ -1,7 +1,7 @@
 <div>
     <x-container title="Dashboard" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    
+
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="flex items-center px-2 py-4 bg-gray-100 rounded-md shadow-sm">
             <div class="ml-5">
@@ -11,10 +11,10 @@
                 <h4 class="text-2xl font-semibold text-gray-600">0</h4>
             </div>
         </div>
-        
+
         <div class="flex items-center px-2 py-4 bg-gray-100 rounded-md shadow-sm">
             <div class="ml-5">
-                <div class="text-blue-900 text-left text-2xl  font-semibold">Total Transfer</div> 
+                <div class="text-blue-900 text-left text-2xl  font-semibold">Total Transfer</div>
             </div>
             <div class="mx-auto">
                 <h4 class="text-2xl font-semibold text-gray-600">0</h4>
@@ -27,16 +27,16 @@
                  <div class="text-red-800 text-left text-6xl ">A+</div>
             </div>
              <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_plus }}</h4>
             </div>
         </div>
-        
+
         <div class="flex items-center px-2 py-4 bg-gray-100 rounded-md shadow-sm">
             <div class="ml-5">
                  <div class="text-red-800 text-left text-6xl ">A-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_minus }}</h4>
             </div>
         </div>
 
@@ -45,7 +45,7 @@
                  <div class="text-red-800 text-left text-6xl ">B+</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_plus }}</h4>
             </div>
         </div>
 
@@ -54,7 +54,7 @@
                  <div class="text-red-800 text-left text-6xl ">B-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_minus }}</h4>
             </div>
         </div>
     </div>
@@ -65,16 +65,16 @@
                  <div class="text-red-800 text-left text-6xl ">O+</div>
             </div>
              <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodO_plus }}</h4>
             </div>
         </div>
-        
+
         <div class="flex items-center px-2 py-4 bg-gray-100 rounded-md shadow-sm">
             <div class="ml-5">
                  <div class="text-red-800 text-left text-6xl ">O-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{$bloodO_minus }}</h4>
             </div>
         </div>
 
@@ -83,7 +83,7 @@
                  <div class="text-red-800 text-left text-6xl ">AB+</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_plus }}</h4>
             </div>
         </div>
 
@@ -92,12 +92,10 @@
                  <div class="text-red-800 text-left text-6xl ">AB-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAcount }}</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_minus}}</h4>
             </div>
         </div>
     </div>
-    
-    
 
 
 
@@ -113,7 +111,9 @@
 
 
 
-                        
+
+
+
                               <!--  <div class="flex items-center px-2 py-4  bg-gray-100 rounded-md shadow-sm">
                                     <div class="p-3 bg-pink-600 bg-opacity-75 rounded-full">
                                         <svg class="w-8 h-8 text-white" viewBox="0 0 28 28" fill="none"
@@ -125,7 +125,7 @@
                                                 stroke="currentColor" stroke-width="2"></path>
                                         </svg>
                                     </div>
-    
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
@@ -143,7 +143,7 @@
                                                 stroke="currentColor" stroke-width="2"></path>
                                         </svg>
                                     </div>
-    
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
@@ -160,7 +160,7 @@
                                                 stroke="currentColor" stroke-width="2"></path>
                                         </svg>
                                     </div>
-    
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
@@ -177,7 +177,7 @@
                                                 stroke="currentColor" stroke-width="2"></path>
                                         </svg>
                                     </div>
-    
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
@@ -194,21 +194,21 @@
                                                 stroke="currentColor" stroke-width="2"></path>
                                         </svg>
                                     </div>
-    
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center px-2 py-4  bg-gray-100 rounded-md shadow-sm">
-                                    
-                            
+
+
                                     <div class="mx-5">
                                         <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
                                         <div class="text-gray-500">Available Products</div>
                                     </div>
                                 </div>-->
-                                
+
                     </div>
 </x-container>
 </div>

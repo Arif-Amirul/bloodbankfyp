@@ -5,7 +5,7 @@
             <x-select
                 label="Blood Group"
                 placeholder="select blood group"
-                :options="['A', 'AB', 'O', 'B']"
+                :options="['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+','AB-' ]"
                 wire:model.defer="blood_group"
             />
         </div>
@@ -60,6 +60,6 @@
             <x-button primary wire:click="create" label="Add" />
         </div>
 
-        
+
     </x-container>
 </div>

@@ -11,12 +11,12 @@
                 Sign in to your account
             </h2>
 
-            <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
+           {{-- <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
                 Or
                 <a href="{{ route('register') }}" class="font-medium transition duration-150 ease-in-out text-primary-600 hover:text-primary-500 focus:outline-none focus:underline">
                     create a new account
                 </a>
-            </p>
+            </p>  --}}
         </div>
         <form wire:submit.prevent="authenticate" class="w-80">
             <div>

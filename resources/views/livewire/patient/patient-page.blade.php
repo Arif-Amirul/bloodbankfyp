@@ -9,7 +9,7 @@
             <x-input type="date" label="Birth date" wire:model.defer="date" />
             <x-input label="Phone Number" placeholder="phone number" wire:model.defer="phone_number" />
         </div>
-        
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <x-select
                 label="Gender"
@@ -36,14 +36,10 @@
             <x-input label="Hospital Contact" placeholder="hospital contact" wire:model.defer="hospital_contact" />
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Quantity Required" placeholder="quantity required" wire:model.defer="quantity_required" />
-        </div>
-
         <div class="mt-4">
             <x-button primary wire:click="create" label="Add" />
         </div>
 
-        
+
     </x-container>
 </div>

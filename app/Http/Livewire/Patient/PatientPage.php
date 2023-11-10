@@ -17,11 +17,11 @@ class PatientPage extends Component
     public $hospital_address;
     public $hospital_name;
     public $hospital_contact;
-    public $quantity_required;
+
 
     public function create() {
-        
-        $this->validate([ 
+
+        $this->validate([
             'patient_id'  => 'required',
             'patient_full_name' => 'required',
             'phone_number' => 'required',
@@ -31,7 +31,7 @@ class PatientPage extends Component
             'hospital_address' => 'required',
             'hospital_name' => 'required',
             'hospital_contact' => 'required',
-            'quantity_required' => 'required',
+
         ]);
 
         PatientCollection::create([
@@ -45,15 +45,15 @@ class PatientPage extends Component
             'hospital_address' => $this->hospital_address,
             'hospital_name' => $this->hospital_name,
             'hospital_contact' => $this->hospital_contact,
-            'quantity_required' => $this->quantity_required,
+
         ]);
 
-        
+
         $this->dialog()->success(
             $title = 'Successfully',
             $description = 'Patient added succesfully.'
         );
-        
+
         $this->patient_id = '';
         $this->patient_full_name = '';
         $this->date= '';
@@ -63,7 +63,7 @@ class PatientPage extends Component
         $this->hospital_address = '';
         $this->hospital_name = '';
         $this->hospital_contact = '';
-        $this->quantity_required = '';
+
     }
 
     public function render()

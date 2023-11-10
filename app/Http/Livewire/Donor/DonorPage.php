@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Donor;
 use App\Models\DonorInformation;
+use App\Models\BloodStock;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
@@ -23,8 +24,9 @@ class DonorPage extends Component
     public $donation_date;
 
     public function create() {
-        
-        $this->validate([ 
+
+
+        $this->validate([
             'donor_id' => 'required',
             'blood_group'  => 'required',
             'full_name' => 'required',
@@ -39,6 +41,7 @@ class DonorPage extends Component
             'postal_code'   => 'required',
             'donation_date' => 'required',
         ]);
+
 
         DonorInformation::create([
             'user_id' => auth()->user()->id,
@@ -57,7 +60,12 @@ class DonorPage extends Component
             'donation_date' => $this->donation_date,
         ]);
 
-        
+        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+
+        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+                      ->update(['quantity' => $bloodStock->quantity + 1]);
+
+
         $this->dialog()->success(
             $title = 'Successfully',
             $description = 'Blood collection added succesfully.'
@@ -76,7 +84,7 @@ class DonorPage extends Component
         $this->state = '';
         $this->postal_code = '';
         $this->donation_date = '';
-        
+
 
     }
     public function render()
