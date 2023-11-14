@@ -12,7 +12,7 @@
                         <x-table.table-header class="text-center" value="Blood Group" sort="" />
                         <x-table.table-header class="text-center" value="Hospital Address" sort="" />
                         <x-table.table-header class="text-center" value="Hospital Name" sort="" />
-                        
+
                         <x-table.table-header class="text-center" value="Edit" sort="" />
 
                     </x-slot>
@@ -25,10 +25,6 @@
 
                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
                              1
-                        </x-table.table-body>
-
-                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                            1
                         </x-table.table-body>
 
                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">

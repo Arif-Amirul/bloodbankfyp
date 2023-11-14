@@ -17,7 +17,6 @@
                         <x-table.table-header class="text-center" value="State" sort="" />
                         <x-table.table-header class="text-center" value="Postal Code" sort="" />
                         <x-table.table-header class="text-center" value="Donation Date" sort="" />
-                        <!--<x-table.table-header class="text-center" value="Donate" sort="" />-->
                         <x-table.table-header class="text-center" value="Blood Test" sort="" />
                         <x-table.table-header class="text-center" value="Edit" sort="" />
                     </x-slot>
@@ -64,10 +63,6 @@
                                     {{$item ->donation_date}}
                                 </x-table.table-body>
 
-                                <!--<x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    <x-button class="bg-yellow-500 text-white" wire:click="" label="View" />
-                                </x-table.table-body>-->
-
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
                                 <div class="flex items-center space-x-2">
                                         <x-button class="bg-red-500 text-white" wire:click="openModalBloodTest" label="Add" />
@@ -79,7 +74,6 @@
                                     <div class="flex items-center space-x-2">
                                         <x-button class="bg-green-500 text-white" wire:click="openModalUpdate('{{$item->id}}')" label="Update" />
                                         <x-button class="bg-red-500 text-white" wire:click="delete('{{$item->id}}')" label="Delete" />
-                                        <x-button primary label="Save" wire:click="update('{{$item->id}}')" />
                                     </div>
                                 </x-table.table-body>
                             </tr>
@@ -165,7 +159,7 @@
                                     </x-slot>
                                     <x-slot name="tbody">
 
-                                        @foreach ($blooddata as $item)
+                                        {{-- @foreach ($blooddata as $item)
                                         <tr>
                                             <x-table.table-body class="text-xs font-medium text-gray-700">
                                                 {{$item ->blood_id}}
@@ -175,7 +169,7 @@
                                                 {{$item ->date}}
                                             </x-table.table-body>
                                         </tr>
-                                        @endforeach
+                                        @endforeach --}}
                                     </x-slot>
                                 </x-table.table>
                             </div>
@@ -247,7 +241,7 @@
                                 <x-slot name="footer">
                                     <div class="flex justify-end gap-x-4">
                                         <x-button flat label="Close" x-on:click="close" />
-                                        <x-button primary label="Save" wire:click="update('{{$donor_id}}')" />
+                                        <x-button primary label="Update" wire:click="update('{{$donor_id}}')" />
                                     </div>
                                 </x-slot>
                         </x-modal.card>

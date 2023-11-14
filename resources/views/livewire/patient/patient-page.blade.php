@@ -20,7 +20,7 @@
             <x-select
                 label="Required Blood Group"
                 placeholder="select blood group"
-                :options="['A', 'AB', 'O', 'B']"
+                :options="['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+','AB-' ]"
                 wire:model.defer="required_blood_group"
             />
         </div>
