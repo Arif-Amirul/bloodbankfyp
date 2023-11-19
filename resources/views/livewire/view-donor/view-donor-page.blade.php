@@ -17,7 +17,7 @@
                         <x-table.table-header class="text-center" value="State" sort="" />
                         <x-table.table-header class="text-center" value="Postal Code" sort="" />
                         <x-table.table-header class="text-center" value="Donation Date" sort="" />
-                        <x-table.table-header class="text-center" value="Blood Test" sort="" />
+                        {{-- <x-table.table-header class="text-center" value="Blood Test" sort="" /> --}}
                         <x-table.table-header class="text-center" value="Edit" sort="" />
                     </x-slot>
                     <x-slot name="tbody">
@@ -63,12 +63,12 @@
                                     {{$item ->donation_date}}
                                 </x-table.table-body>
 
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                {{-- <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
                                 <div class="flex items-center space-x-2">
                                         <x-button class="bg-red-500 text-white" wire:click="openModalBloodTest" label="Add" />
                                         <x-button class="bg-blue-500 text-white" wire:click="viewModalBloodTest" label="View" />
                                     </div>
-                                </x-table.table-body>
+                                </x-table.table-body> --}}
 
                                 <x-table.table-body class="text-xs font-medium text-gray-700">
                                     <div class="flex items-center space-x-2">
@@ -83,7 +83,7 @@
 
 
                     <!--ADD BLOOD TEST-->
-                    <div>
+                    {{-- <div>
                         <x-modal.card title="Add Blood Test" blur wire:model.defer="updateModalTest">
 
                              <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
@@ -145,10 +145,10 @@
                                 </div>
                             </x-slot>
                         </x-modal.card>
-                    </div>
+                    </div> --}}
 
                     <!--VIEW BLOOD TEST-->
-                    <div>
+                    {{-- <div>
                         <x-modal.card title="View Blood Test" blur wire:model.defer="viewModalTest" max-width="9xl">
                             <div>
                                 <x-table.table>
@@ -159,7 +159,7 @@
                                     </x-slot>
                                     <x-slot name="tbody">
 
-                                        {{-- @foreach ($blooddata as $item)
+                                         @foreach ($blooddata as $item)
                                         <tr>
                                             <x-table.table-body class="text-xs font-medium text-gray-700">
                                                 {{$item ->blood_id}}
@@ -169,7 +169,7 @@
                                                 {{$item ->date}}
                                             </x-table.table-body>
                                         </tr>
-                                        @endforeach --}}
+                                        @endforeach
                                     </x-slot>
                                 </x-table.table>
                             </div>
@@ -179,7 +179,7 @@
                                     </div>
                             </x-slot>
                         </x-modal.card>
-                    </div>
+                    </div> --}}
 
                     <!--UPDATE DONOR -->
                     <div>

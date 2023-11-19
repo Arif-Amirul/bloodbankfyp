@@ -102,21 +102,21 @@ class ViewDonorPage extends Component
         ]);
     }
 
-    
 
-    public $updateModalTest = false;
-    public $viewModalTest = false;
 
-    public function openModalBloodTest()
-    {
-        $this->updateModalTest = true;
-    }
+    // public $updateModalTest = false;
+    // public $viewModalTest = false;
 
-    public function viewModalBloodTest()
-    {
+    // public function openModalBloodTest()
+    // {
+    //     $this->updateModalTest = true;
+    // }
 
-        $this->viewModalTest = true;
-    }
+    // public function viewModalBloodTest()
+    // {
+
+    //     $this->viewModalTest = true;
+    // }
 
 
     public function render()
@@ -127,7 +127,5 @@ class ViewDonorPage extends Component
             'data' =>    $Donor,
 
         ])->extends('layouts.main');
-
-
     }
 }
