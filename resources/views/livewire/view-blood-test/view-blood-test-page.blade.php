@@ -12,6 +12,7 @@
                         <x-table.table-header class="text-center" value="Red blood cells" sort="" />
                         <x-table.table-header class="text-center" value="Haemoglobin" sort="" />
                         <x-table.table-header class="text-center" value="Hematocrit" sort="" />
+
                         <x-table.table-header class="text-center" value="MCV" sort="" />
                         <x-table.table-header class="text-center" value="Platelets" sort="" />
                         <x-table.table-header class="text-center" value="CD4+/CD8+" sort="" />
@@ -133,7 +134,7 @@
                         <x-table.table-body class="text-xs font-medium text-gray-700">
                                 <div class="flex items-center space-x-2">
                                     <x-button class="bg-green-500 text-white" wire:click="" label="Update" />
-                                    <x-button primary wire:click="delete" label="Delete" />
+                                    <x-button primary wire:click="delete('{{$item->id}}')" label="Delete" />
                                 </div>
                             </x-table.table-body>
                         </tr>

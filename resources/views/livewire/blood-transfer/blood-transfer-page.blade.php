@@ -3,10 +3,10 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <x-select
-                label="Donor ID"
-                placeholder="Select donor id"
-                :options="$donorIds"
-                wire:model.defer="donorId"
+                label="Blood ID"
+                placeholder="Select blood id"
+                :options="$bloodIds"
+                wire:model.defer="bloodId"
             />
             <x-select
                 label="Transferred To"

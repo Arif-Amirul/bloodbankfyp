@@ -7,6 +7,8 @@
             :options="$donorIds"
             wire:model.defer="donorId"
         />
+        
+        {{-- <x-input label="Blood ID" placeholder="blood id" wire:model.defer="donor_id" /> --}}
             <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
             <x-input type="date" label="Date" wire:model.defer="date" />
         </div>

@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\BloodTransfer;
 use App\Models\BloodStock;
 use App\Models\DonationBlood;
-use App\Models\DonorInformation;
+use App\Models\BloodInformation;
 use App\Models\PatientCollection;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -12,11 +12,11 @@ class BloodTransferPage extends Component
 {
     use Actions;
     public $blood_group;
-    
+
     public function transfer() {
 
         // Get the blood information
-        $donorInformation = DonorInformation::all();
+        $donorInformation = BloodInformation::all();
 
 
         $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
@@ -27,7 +27,7 @@ class BloodTransferPage extends Component
 
 
         // Reset the form fields after transfer
-        $this->reset(['donorId', 'transferredTo']);
+        $this->reset(['bloodId', 'transferredTo']);
 
 
         $this->dialog()->success(
@@ -39,11 +39,11 @@ class BloodTransferPage extends Component
 
     public function render()
     {
-        $donorIds = DonorInformation::pluck('donor_id', 'donor_id');
+        $bloodIds = BloodInformation::pluck('blood_id', 'blood_id');
         $transferredToOptions = PatientCollection::pluck('patient_id', 'patient_id');
 
         return view('livewire.blood-transfer.blood-transfer-page', [
-            'donorIds' => $donorIds,
+            'bloodIds' => $bloodIds,
             'transferredToOptions' => $transferredToOptions,
         ])->extends('layouts.main');
     }

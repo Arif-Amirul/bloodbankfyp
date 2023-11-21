@@ -9,7 +9,10 @@ use WireUi\Traits\Actions;
 class BloodTestPage extends Component
 {
     //ADD BLOOD TEST
+    use Actions;
+    public $donor_id;
     public $blood_id;
+    public $date;
     public $white_blood_cells;
     public $neutrophils;
     public $red_blood_cells;

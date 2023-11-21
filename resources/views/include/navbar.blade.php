@@ -26,7 +26,7 @@
                 <div class="relative " x-data="{menuOpen:false}" x-cloak>
                     <div x-on:click="menuOpen = !menuOpen" @click.away="menuOpen = false"
                         class="flex items-center space-x-2 cursor-pointer">
-                        <x-avatar md src="https://www.nicepng.com/png/detail/364-3647802_blood-symbol-png-blood-donation-app-logo.png" />
+                        <x-avatar md src="https://cdn-icons-png.flaticon.com/512/4034/4034229.png" />
                         <p class="dark:text-gray-400 ">{{ auth()->user()->name }}</p>
                     </div>
 

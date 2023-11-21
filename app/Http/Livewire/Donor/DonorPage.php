@@ -25,7 +25,6 @@ class DonorPage extends Component
 
     public function create() {
 
-
         $this->validate([
             'donor_id' => 'required',
             'blood_group'  => 'required',
@@ -41,7 +40,6 @@ class DonorPage extends Component
             'postal_code'   => 'required',
             'donation_date' => 'required',
         ]);
-
 
         DonorInformation::create([
             'user_id' => auth()->user()->id,

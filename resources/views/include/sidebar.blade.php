@@ -4,6 +4,7 @@
         x-cloak
         class="fixed top-0 left-0 flex flex-col flex-shrink-0 w-64 lg:w-[5rem] h-full duration-75 lg:z-0 lg:flex transition-width "
         :class="toggleSidebarMobile ? 'animate__animated animate__slideInLeft' : 'hidden lg:block '">
+
         <div class="relative flex flex-col flex-1 min-h-0 pt-0 backdrop-blur-xl bg-gradient-to-l from-primary-900 to-primary-800 dark:from-slate-900 dark:to-slate-900">
             <a href="{{ route('home') }}" class="flex items-center justify-center mt-3 mb-4 text-xl font-bold">
                 <x-logo class="w-auto h-12 text-white" />
