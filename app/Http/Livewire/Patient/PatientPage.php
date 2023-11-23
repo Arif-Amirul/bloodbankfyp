@@ -14,10 +14,9 @@ class PatientPage extends Component
     public $phone_number;
     public $gender;
     public $required_blood_group;
-    public $hospital_address;
-    public $hospital_name;
-    public $hospital_contact;
-
+    public $location;
+    public $contact;
+    public $transfer_date;
 
     public function create() {
 
@@ -28,9 +27,9 @@ class PatientPage extends Component
             'date' => 'required',
             'gender' => 'required',
             'required_blood_group' => 'required',
-            'hospital_address' => 'required',
-            'hospital_name' => 'required',
-            'hospital_contact' => 'required',
+            'location' => 'required',
+            'contact' => 'required',
+            'transfer_date' => 'required',
 
         ]);
 
@@ -42,9 +41,9 @@ class PatientPage extends Component
             'phone_number' => $this->phone_number,
             'gender' => $this->gender,
             'required_blood_group' => $this->required_blood_group,
-            'hospital_address' => $this->hospital_address,
-            'hospital_name' => $this->hospital_name,
-            'hospital_contact' => $this->hospital_contact,
+            'location' => $this->location,
+            'contact' => $this->contact,
+            'transfer_date' => $this->transfer_date,
 
         ]);
 
@@ -60,9 +59,9 @@ class PatientPage extends Component
         $this->phone_number = '';
         $this->gender = '';
         $this->required_blood_group = '';
-        $this->hospital_address = '';
-        $this->hospital_name = '';
-        $this->hospital_contact = '';
+        $this->location = '';
+        $this->contact = '';
+        $this->transfer_date= '';
 
     }
 

@@ -6,13 +6,13 @@
                         <x-slot name="thead">
                             <x-table.table-header class="text-center" value="Patient ID" sort="" />
                             <x-table.table-header class="text-center" value="Full Name" sort="" />
-                            <x-table.table-header class="text-center" value="Date" sort="" />
+                            <x-table.table-header class="text-center" value="Birth Date" sort="" />
                             <x-table.table-header class="text-center" value="Phone Number" sort="" />
                             <x-table.table-header class="text-center" value="Gender" sort="" />
                             <x-table.table-header class="text-center" value="Blood Group" sort="" />
-                            <x-table.table-header class="text-center" value="Hospital Address" sort="" />
-                            <x-table.table-header class="text-center" value="Hospital Name" sort="" />
-                            <x-table.table-header class="text-center" value="Hospital Contact" sort="" />
+                            <x-table.table-header class="text-center" value="Location" sort="" />
+                            <x-table.table-header class="text-center" value="Contact" sort="" />
+                            <x-table.table-header class="text-center" value="Transfer Date" sort="" />
                             <x-table.table-header class="text-center" value="Edit" sort="" />
 
                         </x-slot>
@@ -44,15 +44,15 @@
                             </x-table.table-body>
 
                             <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                {{$item ->hospital_address}}
+                                {{$item ->location}}
                             </x-table.table-body>
 
                             <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                {{$item ->hospital_name}}
+                                {{$item ->contact}}
                             </x-table.table-body>
 
                             <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                {{$item ->hospital_contact}}
+                                {{$item ->transfer_date}}
                             </x-table.table-body>
 
                             <x-table.table-body class="text-xs font-medium text-gray-700">
@@ -95,14 +95,12 @@
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                            <div class="col-span-1 sm:col-span-2">
-                                <x-input label="Hospital Address" placeholder="hospital address" wire:model.defer="hospital_address" />
-                            </div>
+                            <x-input label="Location" placeholder="location" wire:model.defer="location" />
+                            <x-input label="Contact" placeholder="contact" wire:model.defer="contact" />
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                            <x-input label="Hospital Name" placeholder="hospital name" wire:model.defer="hospital_name" />
-                            <x-input label="Hospital Contact" placeholder="hospital contact" wire:model.defer="hospital_contact" />
+                            <x-input type="date" label="transfer date" wire:model.defer="transfer_date" />
                         </div>
 
                         <x-slot name="footer">

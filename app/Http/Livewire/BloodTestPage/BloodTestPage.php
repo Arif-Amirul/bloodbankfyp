@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\BloodTestPage;
 use App\Models\BloodInformation;
-use App\Models\DonorInformation;
+use App\Models\Donate;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
@@ -10,7 +10,7 @@ class BloodTestPage extends Component
 {
     //ADD BLOOD TEST
     use Actions;
-    public $donor_id;
+    public $test_id;
     public $blood_id;
     public $date;
     public $white_blood_cells;
@@ -38,7 +38,7 @@ class BloodTestPage extends Component
     public function create() {
 
         $this->validate([
-            'donor_id' => 'required',
+            'test_id' => 'required',
             'blood_id' => 'required',
             'date' => 'required',
             'white_blood_cells' => 'required',
@@ -66,7 +66,7 @@ class BloodTestPage extends Component
 
         BloodInformation::create([
             'user_id' => auth()->user()->id,
-            'donor_id'=> $this->donor_id,
+            'test_id'=> $this->test_id,
             'blood_id'=> $this->blood_id,
             'date'=> $this->date,
             'white_blood_cells'=> $this->white_blood_cells,
@@ -93,7 +93,7 @@ class BloodTestPage extends Component
         ]);
 
         $this->reset([
-            'donor_id',
+            'test_id',
             'blood_id',
             'date',
             'white_blood_cells',
@@ -127,9 +127,9 @@ class BloodTestPage extends Component
     }
     public function render()
     {
-        $donorIds = DonorInformation::pluck('donor_id', 'donor_id');
-        return view('livewire.blood-test-page.blood-test-page' , [
-            'donorIds' => $donorIds,
-            ])->extends('layouts.main');
-        }
+        $bloodIds = Donate::pluck('blood_id', 'blood_id')->unique(); // Fetch unique blood IDs
+        return view('livewire.blood-test-page.blood-test-page', [
+            'bloodIds' => $bloodIds,
+        ])->extends('layouts.main');
     }
+}

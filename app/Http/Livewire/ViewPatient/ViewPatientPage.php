@@ -15,9 +15,9 @@ class ViewPatientPage extends Component
     public $phone_number;
     public $gender;
     public $required_blood_group;
-    public $hospital_address;
-    public $hospital_name;
-    public $hospital_contact;
+    public $location;
+    public $contact;
+    public $transfer_date;
     public $patient;
 
     public function openModalUpdate($id){
@@ -29,9 +29,10 @@ class ViewPatientPage extends Component
         $this->phone_number =   $this->patient->phone_number;
         $this->gender =   $this->patient->gender;
         $this->required_blood_group =  $this->patient->required_blood_group;
-        $this->hospital_address =   $this->patient->hospital_address;
-        $this->hospital_name =  $this->patient->hospital_name;
-        $this->hospital_contact =  $this->patient->hospital_contact;
+        $this->location =   $this->patient->location;
+        $this->contact =   $this->patient->contact;
+        $this->transfer_date=  $this->patient->transfer_date;
+
     }
 
     public function update($id){
@@ -42,9 +43,9 @@ class ViewPatientPage extends Component
             'phone_number' => $this->phone_number,
             'gender' => $this->gender,
             'required_blood_group' => $this->required_blood_group,
-            'hospital_address'=> $this->hospital_address,
-            'hospital_name' => $this->hospital_name,
-            'hospital_contact' => $this->hospital_contact,
+            'location' => $this->location,
+            'contact' => $this->contact,
+            'transfer_date'=> $this->transfer_date,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -66,10 +67,9 @@ class ViewPatientPage extends Component
         $this->date = $patient->date;
         $this->phone_number = $patient->phone_number;
         $this->required_blood_group = $patient->required_blood_group;
-        $this->hospital_address = $patient->hospital_address;
-        $this->hospital_name = $patient->hospital_name;
-        $this->hospital_contact = $patient->hospital_contact;
-
+        $this->location = $patient->location;
+        $this->contact = $patient->contact;
+        $this->transfer_date = $patient->transfer_date;
         $this->dialog([
             'title'       => 'Data Deleted!',
             'description' => 'Data was successfully deletec',

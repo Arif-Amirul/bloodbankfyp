@@ -12,7 +12,7 @@ class BloodInformation extends Model
     protected $table = 'blood_information';
     protected $fillable = [
         'user_id',
-        'donor_id',
+        'test_id',
         'blood_id',
         'date',
         'white_blood_cells',
@@ -36,7 +36,7 @@ class BloodInformation extends Model
         'gamma_globulins',
         'alt',
         'gamma_gt',
-       
+
 
     ];
 

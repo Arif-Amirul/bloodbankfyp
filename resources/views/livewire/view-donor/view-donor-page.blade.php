@@ -5,18 +5,11 @@
                 <x-table.table>
                     <x-slot name="thead">
                         <x-table.table-header class="text-center" value="Donor ID" sort="" />
-                        <x-table.table-header class="text-center" value="Blood Group" sort="" />
                         <x-table.table-header class="text-center" value="Full Name" sort="" />
+                        <x-table.table-header class="text-center" value="Identification Number" sort="" />
                         <x-table.table-header class="text-center" value="Phone Number" sort="" />
-                        <x-table.table-header class="text-center" value="Marital Status" sort="" />
-                        <x-table.table-header class="text-center" value="Date" sort="" />
-                        <x-table.table-header class="text-center" value="Gender" sort="" />
-                        <x-table.table-header class="text-center" value="Race" sort="" />
-                        <x-table.table-header class="text-center" value="Street Address" sort="" />
-                        <x-table.table-header class="text-center" value="City" sort="" />
-                        <x-table.table-header class="text-center" value="State" sort="" />
-                        <x-table.table-header class="text-center" value="Postal Code" sort="" />
-                        <x-table.table-header class="text-center" value="Donation Date" sort="" />
+                        <x-table.table-header class="text-center" value="Blood Group" sort="" />
+                        <x-table.table-header class="text-center" value="More Information" sort="" />
                         {{-- <x-table.table-header class="text-center" value="Blood Test" sort="" /> --}}
                         <x-table.table-header class="text-center" value="Edit" sort="" />
                     </x-slot>
@@ -27,40 +20,16 @@
                                     {{$item ->donor_id}}
                                 </x-table.table-body>
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->blood_group}}
+                                    {{$item ->full_name}}
                                 </x-table.table-body>
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->full_name}}
+                                    {{$item ->identification_number	}}
                                 </x-table.table-body>
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
                                     {{$item ->phone_number}}
                                 </x-table.table-body>
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->marital_status}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->	date}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->	gender}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->race}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->street_address}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->city}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->state}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->postal_code}}
-                                </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                    {{$item ->donation_date}}
+                                    {{$item ->blood_group}}
                                 </x-table.table-body>
 
                                 {{-- <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
@@ -69,6 +38,10 @@
                                         <x-button class="bg-blue-500 text-white" wire:click="viewModalBloodTest" label="View" />
                                     </div>
                                 </x-table.table-body> --}}
+
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                    <x-button class="bg-blue-500 text-white" wire:click="openModalViewMore('{{$item->id}}')" label="View More" />
+                                </x-table.table-body>
 
                                 <x-table.table-body class="text-xs font-medium text-gray-700">
                                     <div class="flex items-center space-x-2">
@@ -181,21 +154,72 @@
                         </x-modal.card>
                     </div> --}}
 
+                    <!--VIEW DETAILS-->
+                    <div>
+                        <x-modal.card title="View Details" blur wire:model.defer="viewMoreModal" max-width="9xl">
+                            <div>
+                                <x-table.table>
+                                    <x-slot name="thead">
+                                        <x-table.table-header class="text-center" value="Marital Status" sort="" />
+                                        <x-table.table-header class="text-center" value="Date" sort="" />
+                                        <x-table.table-header class="text-center" value="Gender" sort="" />
+                                        <x-table.table-header class="text-center" value="Race" sort="" />
+                                        <x-table.table-header class="text-center" value="Street Address" sort="" />
+                                        <x-table.table-header class="text-center" value="City" sort="" />
+                                        <x-table.table-header class="text-center" value="State" sort="" />
+                                        <x-table.table-header class="text-center" value="Postal Code" sort="" />
+
+                                    </x-slot>
+                                    <x-slot name="tbody">
+                                        @foreach ($data as $item)
+                                        <tr>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->marital_status}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->date}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->gender}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->race}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->street_address}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->city}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->state}}
+                                            </x-table.table-body>
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                                {{$item ->postal_code}}
+                                            </x-table.table-body>
+                                        </tr>
+                                        @endforeach
+                                    </x-slot>
+                                </x-table.table>
+                            </div>
+                            <x-slot name="footer">
+                                    <div class="flex justify-end gap-x-4">
+                                        <x-button flat label="Close" x-on:click="close" />
+                                    </div>
+                            </x-slot>
+                        </x-modal.card>
+                    </div>
+
                     <!--UPDATE DONOR -->
                     <div>
                         <x-modal.card title="Edit Donor" blur wire:model.defer="updateModal">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <x-input label="Donor ID" placeholder="donor id" wire:model.defer="donor_id" />
-                                    <x-select
-                                        label="Blood Group"
-                                        placeholder="select blood group"
-                                        :options="['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+','AB-']"
-                                        wire:model.defer="blood_group"
-                                    />
+                                    <x-input label="Full Name" placeholder="full name" wire:model.defer="full_name" />
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                                    <x-input label="Full Name" placeholder="full name" wire:model.defer="full_name" />
+                                    <x-input label="Identification Number" placeholder="Identification Number" wire:model.defer="identification_number" />
                                     <x-input label="Phone Number" placeholder="phone number" wire:model.defer="phone_number" />
                                 </div>
 
@@ -236,7 +260,12 @@
                                     <x-input label="Postal Code" placeholder="postal code" wire:model.defer="postal_code" />
                                 </div>
                                 <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                    <x-input type="date" label="Donation Date" wire:model.defer="donation_date" />
+                                    <x-select
+                                        label="Blood Group"
+                                        placeholder="select blood group"
+                                        :options="['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+','AB-']"
+                                        wire:model.defer="blood_group"
+                                    />
                                 </div>
                                 <x-slot name="footer">
                                     <div class="flex justify-end gap-x-4">

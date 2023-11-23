@@ -14,7 +14,7 @@ class DonorInformation extends Model
     protected $fillable = [
         'user_id',
         'donor_id',
-        'blood_group',
+        'identification_number',
         'full_name',
         'phone_number',
         'marital_status',
@@ -25,8 +25,7 @@ class DonorInformation extends Model
         'city',
         'state',
         'postal_code',
-        'donation_date',
-
+        'blood_group',
     ];
 
     public function user()

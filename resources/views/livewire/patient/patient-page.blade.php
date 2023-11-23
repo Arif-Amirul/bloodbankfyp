@@ -6,7 +6,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input type="date" label="Birth date" wire:model.defer="date" />
+            <x-input type="date" label="Birth Date" wire:model.defer="date" />
             <x-input label="Phone Number" placeholder="phone number" wire:model.defer="phone_number" />
         </div>
 
@@ -26,14 +26,12 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <div class="col-span-1 sm:col-span-2">
-                <x-input label="Hospital Address" placeholder="hospital address" wire:model.defer="hospital_address" />
-            </div>
+            <x-input label="Location" placeholder="location" wire:model.defer="location" />
+            <x-input label="Contact" placeholder="Contact" wire:model.defer="contact" />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Hospital Name" placeholder="hospital name" wire:model.defer="hospital_name" />
-            <x-input label="Hospital Contact" placeholder="hospital contact" wire:model.defer="hospital_contact" />
+            <x-input type="date" label="Transfer Date" wire:model.defer="transfer_date" />
         </div>
 
         <div class="mt-4">

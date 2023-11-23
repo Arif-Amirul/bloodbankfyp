@@ -11,6 +11,7 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Home\Home;
 use App\Http\Livewire\Donor\DonorPage;
+use App\Http\Livewire\Donation\DonationPage;
 use App\Http\Livewire\BloodTestPage\BloodTestPage;
 use App\Http\Livewire\ViewDonor\ViewDonorPage;
 use App\Http\Livewire\ViewBloodTest\ViewBloodTestPage;
@@ -68,6 +69,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('home', Home::class)->name('home');
     Route::get('donor-page', DonorPage::class)->name('donor-page');
+    Route::get('donation-page', DonationPage::class)->name('donation-page');
     Route::get('blood-test-page', BloodTestPage::class)->name('blood-test-page');
     Route::get('patient-page', PatientPage::class)->name('patient-page');
     Route::get('view-donor-page', ViewDonorPage::class)->name('view-donor-page');

@@ -9,7 +9,8 @@ class ViewBloodTestPage extends Component
 {
     use Actions;
     public $updateModal = false;
-    public $donor_id;
+    public $viewTestMoreModal = false;
+    public $test_id;
     public $blood_id;
     public $date;
     public $white_blood_cells;
@@ -34,6 +35,32 @@ class ViewBloodTestPage extends Component
     public $alt;
     public $gamma_gt;
     public $BloodTest;
+
+    public function openModalViewTestMore($id){
+        $this->viewTestMoreModal = true;
+        $this->BloodTest = BloodInformation::find($id);
+        $this->white_blood_cells = $this->BloodTest->white_blood_cells;
+        $this->neutrophils = $this->BloodTest->neutrophils;
+        $this->red_blood_cells = $this->BloodTest->red_blood_cells;
+        $this->haemoglobin = $this->BloodTest->haemoglobin;
+        $this->hematrocrit = $this->BloodTest->hematrocrit;
+        $this->mcv = $this->BloodTest->mcv;
+        $this->platelets = $this->BloodTest->platelets;
+        $this->cd4_cd8 = $this->BloodTest->cd4_cd8;
+        $this->hiv_test =$this->BloodTest->hiv_test;
+        $this->glicaemia = $this->BloodTest->glicaemia;
+        $this->transferrin = $this->BloodTest->transferrin;
+        $this->ferritim = $this->BloodTest->ferritim;
+        $this->sodium = $this->BloodTest->sodium;
+        $this->potassium = $this->BloodTest->potassium;
+        $this->calcium = $this->BloodTest->calcium;
+        $this->plasma_proteins = $this->BloodTest->plasma_proteins;
+        $this->albumin = $this->BloodTest->albumin;
+        $this->prealbumin = $this->BloodTest->prealbumin;
+        $this->gamma_globulins = $this->BloodTest->gamma_globulins;
+        $this->alt = $this->BloodTest->alt;
+        $this->gamma_gt = $this->BloodTest->gamma_gt;
+    }
 
     // public function openModalUpdate($id){
     //     $this->updateModal = true;
@@ -76,7 +103,7 @@ class ViewBloodTestPage extends Component
 
         $BloodTest = BloodInformation::find($id);
         $BloodTest->delete();
-        $this->donor_id = $BloodTest->donor_id;
+        $this->test_id = $BloodTest->test_id;
         $this->blood_id = $BloodTest->blood_id;
         $this->date = $BloodTest->date;
         $this->white_blood_cells = $BloodTest->white_blood_cells;

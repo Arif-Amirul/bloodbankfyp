@@ -45,32 +45,32 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                            title="Add Blood Test"
-                            activeUrl="blood-test-page"
-                            route="{{route('blood-test-page')}}"
-                        >
-                            <x-slot name="iconName">
-                                <x-icon name="user" class="w-6 h-6"/>
-                            </x-slot>
-                        </x-sidebar.nav-item>
-
-                        <x-sidebar.nav-item
-                            title="Add Patient"
-                            activeUrl="patient-page"
-                            route="{{route('patient-page')}}"
-                        >
-                            <x-slot name="iconName">
-                                <x-icon name="user" class="w-6 h-6"/>
-                            </x-slot>
-                        </x-sidebar.nav-item>
-
-                        <x-sidebar.nav-item
                             title="Manage Donor"
                             activeUrl="view-donor-page"
                             route="{{route('view-donor-page')}}"
                         >
                             <x-slot name="iconName">
                                 <x-icon name="folder" class="w-6 h-6"/>
+                            </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
+                        title="Donate"
+                        activeUrl="donation-page"
+                        route="{{route('donation-page')}}"
+                        >
+                        <x-slot name="iconName">
+                            <x-icon name="folder" class="w-6 h-6"/>
+                        </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
+                            title="Add Blood Test"
+                            activeUrl="blood-test-page"
+                            route="{{route('blood-test-page')}}"
+                        >
+                            <x-slot name="iconName">
+                                <x-icon name="user" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
 
@@ -82,6 +82,16 @@
                         <x-slot name="iconName">
                             <x-icon name="folder" class="w-6 h-6"/>
                         </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
+                            title="Add Patient"
+                            activeUrl="patient-page"
+                            route="{{route('patient-page')}}"
+                        >
+                            <x-slot name="iconName">
+                                <x-icon name="user" class="w-6 h-6"/>
+                            </x-slot>
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
