@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DonationBlood extends Model
+class BloodRequest extends Model
 {
     use HasFactory;
-    protected $table = 'donation_blood';
+    protected $table = 'blood_requests';
     protected $fillable = [
-        'donor_id',
+        'user_id',
+        'transfer_id',
+        'transfer_date',
+        'location',
+        'required_blood_group',
         'patient_id',
-
+        'blood_id',
     ];
+
     public $timestamps = false;
 }

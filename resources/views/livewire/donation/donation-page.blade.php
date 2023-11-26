@@ -16,8 +16,17 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
+            <x-select
+            label="Blood Group"
+            placeholder="select blood group"
+            :options="['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+','AB-' ]"
+            wire:model.defer="blood_group"
+        />
             <x-input type="date" label="Donation Date" wire:model.defer="donation_date" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+            <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
         </div>
 
         <div class="mt-4">

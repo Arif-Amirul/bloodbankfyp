@@ -13,7 +13,7 @@
     @mouseout="showDropdown = false"
     >
     <a href="{{ $route }}"
-        class="flex items-center px-4 text-base font-normal rounded-lg mb-4
+        class="flex items-center px-4 text-base font-normal rounded-lg mb-2
         {{Route::current()->uri == $activeUrl || \Request::is($activeUrl) ? ' bg-gray-50  text-primary-900 dark:bg-slate-800 dark:text-primary-500  py-2 ' : ' hover:text-white bg-transparent text-gray-300 dark:text-white py-1'}}
         ">
 

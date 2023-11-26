@@ -23,21 +23,21 @@ class Home extends Component
     {
         $bloodA_plus = BloodStock::where('blood_type','A+')->first();
         $bloodA_minus = BloodStock::where('blood_type','A-')->first();
+        $bloodO_plus = BloodStock::where('blood_type','O-')->first();
+        $bloodO_minus = BloodStock::where('blood_type','O+')->first();
+        $bloodAB_plus = BloodStock::where('blood_type','AB+')->first();
+        $bloodAB_minus = BloodStock::where('blood_type','AB-')->first();
         $bloodB_plus = BloodStock::where('blood_type','B+')->first();
         $bloodB_minus = BloodStock::where('blood_type','B-')->first();
-        $bloodO_plus = BloodStock::where('blood_type','O+')->first();
-        $bloodO_minus = BloodStock::where('blood_type','O-')->first();
-        $bloodAB_plus = BloodStock::where('blood_type','B-')->first();
-        $bloodAB_minus = BloodStock::where('blood_type','B+')->first();
 
         $this->bloodA_plus=$bloodA_plus->quantity;
         $this->bloodA_minus=$bloodA_minus->quantity;
-        $this->bloodB_plus=$bloodB_plus->quantity;
-        $this->bloodB_minus=$bloodB_minus->quantity;
-        $this->bloodO_plus=$bloodO_plus ->quantity;
         $this->bloodO_minus=$bloodO_minus->quantity;
+        $this->bloodO_plus=$bloodO_plus ->quantity;
         $this->bloodAB_plus=$bloodAB_plus->quantity;
         $this->bloodAB_minus=$bloodAB_minus->quantity;
+        $this->bloodB_plus=$bloodB_plus->quantity;
+        $this->bloodB_minus=$bloodB_minus->quantity;
 
         return view('livewire.home.home')->extends('layouts.main');
     }

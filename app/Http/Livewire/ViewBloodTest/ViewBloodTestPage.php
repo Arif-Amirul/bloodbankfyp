@@ -8,7 +8,7 @@ use WireUi\Traits\Actions;
 class ViewBloodTestPage extends Component
 {
     use Actions;
-    public $updateModal = false;
+    public $updateTestModal = false;
     public $viewTestMoreModal = false;
     public $test_id;
     public $blood_id;
@@ -34,6 +34,7 @@ class ViewBloodTestPage extends Component
     public $gamma_globulins;
     public $alt;
     public $gamma_gt;
+    public $blood_status;
     public $BloodTest;
 
     public function openModalViewTestMore($id){
@@ -60,44 +61,75 @@ class ViewBloodTestPage extends Component
         $this->gamma_globulins = $this->BloodTest->gamma_globulins;
         $this->alt = $this->BloodTest->alt;
         $this->gamma_gt = $this->BloodTest->gamma_gt;
+        $this->blood_status = $this->BloodTest->blood_status;
     }
 
-    // public function openModalUpdate($id){
-    //     $this->updateModal = true;
-    //     $this->patient = PatientCollection::find($id);
-    //     $this->patient_id =   $this->patient->patient_id;
-    //     $this->patient_full_name=   $this->patient->patient_full_name;
-    //     $this->date =  $this->patient->date;
-    //     $this->phone_number =   $this->patient->phone_number;
-    //     $this->gender =   $this->patient->gender;
-    //     $this->required_blood_group =  $this->patient->required_blood_group;
-    //     $this->hospital_address =   $this->patient->hospital_address;
-    //     $this->hospital_name =  $this->patient->hospital_name;
-    //     $this->hospital_contact =  $this->patient->hospital_contact;
-    // }
+    public function openModalUpdate($id){
+        $this->updateTestModal = true;
+        $this->BloodTest = BloodInformation::find($id);
+        $this->test_id = $this->BloodTest->test_id;
+        $this->date = $this->BloodTest->date;
+        $this->white_blood_cells = $this->BloodTest->white_blood_cells;
+        $this->neutrophils = $this->BloodTest->neutrophils;
+        $this->red_blood_cells = $this->BloodTest->red_blood_cells;
+        $this->haemoglobin = $this->BloodTest->haemoglobin;
+        $this->hematrocrit = $this->BloodTest->hematrocrit;
+        $this->mcv = $this->BloodTest->mcv;
+        $this->platelets = $this->BloodTest->platelets;
+        $this->cd4_cd8 = $this->BloodTest->cd4_cd8;
+        $this->hiv_test =$this->BloodTest->hiv_test;
+        $this->glicaemia = $this->BloodTest->glicaemia;
+        $this->transferrin = $this->BloodTest->transferrin;
+        $this->ferritim = $this->BloodTest->ferritim;
+        $this->sodium = $this->BloodTest->sodium;
+        $this->potassium = $this->BloodTest->potassium;
+        $this->calcium = $this->BloodTest->calcium;
+        $this->plasma_proteins = $this->BloodTest->plasma_proteins;
+        $this->albumin = $this->BloodTest->albumin;
+        $this->prealbumin = $this->BloodTest->prealbumin;
+        $this->gamma_globulins = $this->BloodTest->gamma_globulins;
+        $this->alt = $this->BloodTest->alt;
+        $this->gamma_gt = $this->BloodTest->gamma_gt;
+        $this->blood_status = $this->BloodTest->blood_status;
+    }
 
-    // public function update($id){
-    //     $this->patient->update([
-    //         'patient_id' => $this->patient_id,
-    //         'patient_full_name'=> $this->patient_full_name,
-    //         'date' => $this->date,
-    //         'phone_number' => $this->phone_number,
-    //         'gender' => $this->gender,
-    //         'required_blood_group' => $this->required_blood_group,
-    //         'hospital_address'=> $this->hospital_address,
-    //         'hospital_name' => $this->hospital_name,
-    //         'hospital_contact' => $this->hospital_contact,
-    //         'created_at' => now(),
-    //         'updated_at' => now(),
-    //     ]);
-    //     $this->updateModal = false;
+    public function update($id){
+        $this->BloodTest->update([
+            'test_id'=> $this->test_id,
+            'date'=> $this->date,
+            'white_blood_cells'=> $this->white_blood_cells,
+            'neutrophils'=> $this->neutrophils,
+            'red_blood_cells'=> $this->red_blood_cells,
+            'haemoglobin'=> $this->haemoglobin,
+            'hematrocrit'=> $this->hematrocrit,
+            'mcv'=> $this->mcv,
+            'platelets'=> $this->platelets,
+            'cd4_cd8'=> $this->cd4_cd8,
+            'hiv_test'=> $this->hiv_test,
+            'glicaemia'=> $this->glicaemia,
+            'transferrin'=> $this->transferrin,
+            'ferritim'=> $this->ferritim,
+            'sodium'=> $this->sodium,
+            'potassium'=> $this->potassium,
+            'calcium'=> $this->calcium,
+            'plasma_proteins'=> $this->plasma_proteins,
+            'albumin'=> $this->albumin,
+            'prealbumin'=> $this->prealbumin,
+            'gamma_globulins'=> $this->gamma_globulins,
+            'alt'=> $this->alt,
+            'gamma_gt'=> $this->gamma_gt,
+            'blood_status'=> $this->blood_status,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        $this->updateTestModal = false;
 
-    //     $this->dialog([
-    //         'title'       => 'Data Updated!',
-    //         'description' => 'Data was successfully updated',
-    //         'icon'        => 'success'
-    //     ]);
-    // }
+        $this->dialog([
+            'title'       => 'Data Updated!',
+            'description' => 'Data was successfully updated',
+            'icon'        => 'success'
+        ]);
+    }
 
     public function delete($id){
 
@@ -127,6 +159,7 @@ class ViewBloodTestPage extends Component
         $this->gamma_globulins = $BloodTest->gamma_globulins;
         $this->alt = $BloodTest->alt;
         $this->gamma_gt = $BloodTest->gamma_gt;
+        $this->blood_status = $BloodTest->blood_status;
 
         $this->dialog([
             'title'       => 'Data Deleted!',

@@ -17,14 +17,34 @@
             </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Patient ID" placeholder="patient id" wire:model.defer="patient_id" />
-            <x-input label="Blood ID" placeholder="blood_id" wire:model.defer="blood_id" />
+            <div class="relative">
+                <label for="patient_id" class="block text-sm font-medium text-gray-700">Patient ID</label>
+                <select wire:model.defer="patient_id" id="patient_id" name="patient_id"
+                        class="mt-1 block w-full py-2 px-3 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select Patient ID</option>
+                    @foreach($patientIds as $id => $patientIds)
+                        <option value="{{ $id }}">{{ $patientIds }}</option>
+                    @endforeach
+                </select>
+                @error('patient_id') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div>
+            <div class="relative">
+                <label for="blood_id" class="block text-sm font-medium text-gray-700">Blood ID</label>
+                <select wire:model.defer="blood_id" id="blood_id" name="blood_id"
+                        class="mt-1 block w-full py-2 px-3 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select Blood ID</option>
+                    @foreach($bloodIds as $id => $bloodId)
+                        <option value="{{ $id }}">{{ $bloodId }}</option>
+                    @endforeach
+                </select>
+                @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div>
         </div>
 
         <div class="mt-4">
-            <x-button primary wire:click="create" label="Transfer" />
+            <x-button primary wire:click="transfer" label="Transfer" />
         </div>
-        
+
     </x-container>
 </div>
 

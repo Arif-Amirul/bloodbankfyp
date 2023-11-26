@@ -103,10 +103,10 @@ class ViewDonorPage extends Component
         $this->postal_code = $donor->postal_code;
         $this->blood_group = $donor->blood_group;
 
-        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+        // $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
 
-        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
-                      ->update(['quantity' => $bloodStock->quantity -1]);
+        // $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+        //             ->update(['quantity' => $bloodStock->quantity -1]);
 
         $this->dialog([
             'title'       => 'Data Deleted!',
@@ -114,8 +114,6 @@ class ViewDonorPage extends Component
             'icon'        => 'success'
         ]);
     }
-
-
 
     // public $updateModalTest = false;
     // public $viewModalTest = false;
@@ -130,7 +128,6 @@ class ViewDonorPage extends Component
 
     //     $this->viewModalTest = true;
     // }
-
 
     public function render()
     {

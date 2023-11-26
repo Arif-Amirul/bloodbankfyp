@@ -34,6 +34,7 @@ class BloodTestPage extends Component
     public $gamma_globulins;
     public $alt;
     public $gamma_gt;
+    public $blood_status;
 
     public function create() {
 
@@ -62,6 +63,7 @@ class BloodTestPage extends Component
             'gamma_globulins' => 'required',
             'alt' => 'required',
             'gamma_gt' => 'required',
+            'blood_status' => 'required',
         ]);
 
         BloodInformation::create([
@@ -90,6 +92,7 @@ class BloodTestPage extends Component
             'gamma_globulins'=> $this->gamma_globulins,
             'alt'=> $this->alt,
             'gamma_gt'=> $this->gamma_gt,
+            'blood_status'=> $this->blood_status,
         ]);
 
         $this->reset([
@@ -116,6 +119,7 @@ class BloodTestPage extends Component
             'prealbumin',
             'gamma_globulins',
             'alt',
+            'gamma_gt',
             'gamma_gt',
         ]);
 

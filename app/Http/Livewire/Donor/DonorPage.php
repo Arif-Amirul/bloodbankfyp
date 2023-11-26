@@ -59,7 +59,7 @@ class DonorPage extends Component
         ]);
 
         // $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
-        
+
         // $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
         //             ->update(['quantity' => $bloodStock->quantity + 1]);
 

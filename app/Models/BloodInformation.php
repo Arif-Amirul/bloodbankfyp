@@ -36,8 +36,7 @@ class BloodInformation extends Model
         'gamma_globulins',
         'alt',
         'gamma_gt',
-
-
+        'blood_status',
     ];
 
     public function user()

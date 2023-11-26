@@ -50,7 +50,7 @@
                             route="{{route('view-donor-page')}}"
                         >
                             <x-slot name="iconName">
-                                <x-icon name="folder" class="w-6 h-6"/>
+                                <x-icon name="database" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
 
@@ -60,7 +60,17 @@
                         route="{{route('donation-page')}}"
                         >
                         <x-slot name="iconName">
-                            <x-icon name="folder" class="w-6 h-6"/>
+                            <x-icon name="folder-add" class="w-6 h-6"/>
+                        </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
+                        title="View Donation"
+                        activeUrl="view-donate-page"
+                        route="{{route('view-donate-page')}}"
+                        >
+                        <x-slot name="iconName">
+                            <x-icon name="database" class="w-6 h-6"/>
                         </x-slot>
                         </x-sidebar.nav-item>
 
@@ -80,7 +90,7 @@
                         route="{{route('view-blood-test-page')}}"
                         >
                         <x-slot name="iconName">
-                            <x-icon name="folder" class="w-6 h-6"/>
+                            <x-icon name="database" class="w-6 h-6"/>
                         </x-slot>
                         </x-sidebar.nav-item>
 
@@ -100,17 +110,27 @@
                             route="{{route('view-patient-page')}}"
                         >
                             <x-slot name="iconName">
-                                <x-icon name="folder" class="w-6 h-6"/>
+                                <x-icon name="database" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                            title="Manage Blood Transfer"
+                            title="Blood Request"
                             activeUrl="blood-transfer-page"
                             route="{{route('blood-transfer-page')}}"
                         >
                             <x-slot name="iconName">
                                 <x-icon name="truck" class="w-6 h-6"/>
+                            </x-slot>
+                        </x-sidebar.nav-item>
+
+                        <x-sidebar.nav-item
+                            title="Manage Blood Request"
+                            activeUrl="view-blood-request-page"
+                            route="{{route('view-blood-request-page')}}"
+                        >
+                            <x-slot name="iconName">
+                                <x-icon name="database" class="w-6 h-6"/>
                             </x-slot>
                         </x-sidebar.nav-item>
 

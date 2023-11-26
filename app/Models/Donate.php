@@ -14,10 +14,11 @@ class Donate extends Model
         'user_id',
         'donation_id',
         'donor_id',
+        'blood_group',
         'blood_id',
         'donation_date',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
