@@ -1,5 +1,5 @@
 <div>
-    <x-container title="View Donor" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
+    <x-container title="Manage Donor" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="grid grid-cols-1">
             <div>
                 <x-table.table>
@@ -10,25 +10,24 @@
                         <x-table.table-header class="text-center" value="Phone Number" sort="" />
                         <x-table.table-header class="text-center" value="Blood Group" sort="" />
                         <x-table.table-header class="text-center" value="More Information" sort="" />
-                        {{-- <x-table.table-header class="text-center" value="Blood Test" sort="" /> --}}
                         <x-table.table-header class="text-center" value="Edit" sort="" />
                     </x-slot>
                     <x-slot name="tbody">
                         @foreach ($data as $item)
                             <tr>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     {{$item ->donor_id}}
                                 </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     {{$item ->full_name}}
                                 </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     {{$item ->identification_number	}}
                                 </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     {{$item ->phone_number}}
                                 </x-table.table-body>
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     {{$item ->blood_group}}
                                 </x-table.table-body>
 
@@ -39,11 +38,11 @@
                                     </div>
                                 </x-table.table-body> --}}
 
-                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                     <x-button class="bg-blue-500 text-white" wire:click="openModalViewMore('{{$item->id}}')" label="View More" />
                                 </x-table.table-body>
 
-                                <x-table.table-body class="text-xs font-medium text-gray-700">
+                                <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
                                     <div class="flex items-center space-x-2">
                                         <x-button class="bg-green-500 text-white" wire:click="openModalUpdate('{{$item->id}}')" label="Update" />
                                         <x-button class="bg-red-500 text-white" wire:click="delete('{{$item->id}}')" label="Delete" />
@@ -171,34 +170,32 @@
 
                                     </x-slot>
                                     <x-slot name="tbody">
-                                        @foreach ($data as $item)
                                         <tr>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->marital_status}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$marital_status}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->date}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$date}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->gender}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$gender}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->race}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$race}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->street_address}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$street_address}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->city}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$city}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->state}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$state}}
                                             </x-table.table-body>
-                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                                {{$item ->postal_code}}
+                                            <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
+                                                {{$postal_code}}
                                             </x-table.table-body>
                                         </tr>
-                                        @endforeach
                                     </x-slot>
                                 </x-table.table>
                             </div>

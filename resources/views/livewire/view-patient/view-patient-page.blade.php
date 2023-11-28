@@ -1,5 +1,5 @@
 <div>
-    <x-container title="View Patient Page" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
+    <x-container title="Manage Patient Page" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="grid grid-cols-1">
             <div>
                 <x-table.table>

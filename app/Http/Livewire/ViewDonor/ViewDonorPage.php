@@ -4,7 +4,6 @@ namespace App\Http\Livewire\ViewDonor;
 
 use Livewire\Component;
 use App\Models\DonorInformation;
-use App\Models\BloodStock;
 use WireUi\Traits\Actions;
 
 class ViewDonorPage extends Component

@@ -2,7 +2,7 @@
 <div :class="toggleSidebarDesktop ? 'block  z-50' : 'hidden z-50'">
     <aside
         x-cloak
-        class="fixed top-0 left-0 flex flex-col flex-shrink-0 w-64 lg:w-[5rem] h-full duration-75 lg:z-0 lg:flex transition-width "
+        class=" flex flex-col flex-shrink-0 w-[14rem] h-full duration-75 lg:z-0 lg:flex transition-width "
         :class="toggleSidebarMobile ? 'animate__animated animate__slideInLeft' : 'hidden lg:block '">
 
         <div class="relative flex flex-col flex-1 min-h-0 pt-0 backdrop-blur-xl bg-gradient-to-l from-primary-900 to-primary-800 dark:from-slate-900 dark:to-slate-900">
@@ -65,7 +65,7 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                        title="View Donation"
+                        title="Manage Donation"
                         activeUrl="view-donate-page"
                         route="{{route('view-donate-page')}}"
                         >
@@ -125,7 +125,7 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                            title="Manage Blood Request"
+                            title="View Blood Request"
                             activeUrl="view-blood-request-page"
                             route="{{route('view-blood-request-page')}}"
                         >

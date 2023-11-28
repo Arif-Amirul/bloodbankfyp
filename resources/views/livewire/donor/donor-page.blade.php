@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Donor Registration" routeBackBtn="" titleBackBtn="" disableBackBtn="">
+    <x-container title="Add Donor" routeBackBtn="" titleBackBtn="" disableBackBtn="">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <x-input label="Donor ID" placeholder="donor id" wire:model.defer="donor_id" />
 

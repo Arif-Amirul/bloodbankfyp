@@ -1,5 +1,5 @@
 <div>
-    <x-container title="View Blood Test" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
+    <x-container title="Manage Blood Test" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="grid grid-cols-1">
             <div>
                 <x-table.table>
@@ -14,25 +14,25 @@
                     <x-slot name="tbody">
                         @foreach ($blooddata as $item)
                         <tr>
-                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
+                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                             {{$item ->test_id}}
                         </x-table.table-body>
 
-                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
+                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                             {{$item ->blood_id}}
                         </x-table.table-body>
 
-                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
+                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                             {{$item ->date}}
                         </x-table.table-body>
 
-                        <x-table.table-body class="text-xs font-medium text-gray-700">
+                        <x-table.table-body class="text-xs font-medium text-gray-700 text-center" >
                             <div class="flex items-center space-x-2">
                                 <x-button class="bg-blue-500 text-white" wire:click="openModalViewTestMore('{{$item->id}}')" label="View More" />
                             </div>
                         </x-table.table-body>
 
-                        <x-table.table-body class="text-xs font-medium text-gray-700">
+                        <x-table.table-body class="text-xs font-medium text-gray-700 text-center" >
                                 <div class="flex items-center space-x-2">
                                     <x-button class="bg-green-500 text-white" wire:click="openModalUpdate('{{$item->id}}')" label="Update" />
                                     <x-button primary wire:click="delete('{{$item->id}}')" label="Delete" />
@@ -74,97 +74,95 @@
                                 </x-slot>
 
                                 <x-slot name="tbody">
-                                    @foreach ($blooddata as $item)
                                     <tr>
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->white_blood_cells}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$white_blood_cells}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->neutrophils}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$neutrophils}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->red_blood_cells}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$red_blood_cells}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->haemoglobin}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$haemoglobin}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->hematrocrit}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$hematrocrit}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->mcv}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$mcv}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->platelets}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$platelets}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->cd4_cd8}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$cd4_cd8}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->hiv_test}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$hiv_test}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->glicaemia}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$glicaemia}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->transferrin}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$transferrin}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->ferritim}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$ferritim}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->sodium}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$sodium}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->potassium}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$potassium}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->calcium}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$calcium}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->plasma_proteins}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$plasma_proteins}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->albumin}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$albumin}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->prealbumin}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$prealbumin}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->gamma_globulins}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$gamma_globulins}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->alt}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$alt}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->gamma_gt}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$gamma_gt}}
                                         </x-table.table-body>
 
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700">
-                                            {{$item ->blood_status}}
+                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
+                                            {{$blood_status}}
                                         </x-table.table-body>
                                     </tr>
-                                    @endforeach
                                 </x-slot>
                             </x-table.table>
                         </div>
@@ -177,7 +175,7 @@
             </div>
 
               <!--UPDATE DONOR -->
-              <div>
+            <div>
                 <x-modal.card title="Edit Blood Test" blur wire:model.defer="updateTestModal">
                     <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
                         <x-input label="Test ID" placeholder="test id" wire:model.defer="test_id" />

@@ -10,11 +10,41 @@ use WireUi\Traits\Actions;
 class ViewDonatePage extends Component
 {
     use Actions;
+    public $updateModal = false;
     public $donation_id;
     public $donor_id;
     public $blood_group;
     public $blood_id;
     public $donation_date;
+    public $donation;
+
+    public function openModalUpdate($id){
+        $this->updateModal = true;
+        $this->donation = Donate::find($id);
+        $this->donation_id =   $this->donation->donation_id;
+        $this->blood_group=   $this->donation->blood_group;
+        $this->blood_id =   $this->donation->blood_id;
+        $this->donation_date=   $this->donation->donation_date;
+    }
+
+    public function update($id){
+        $this->donation->update([
+            'donation_id' => $this->donation_id,
+            'blood_group' => $this->blood_group,
+            'blood_id' => $this->blood_id,
+            'donation_date' => $this->donation_date,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        $this->updateModal = false;
+
+        $this->dialog([
+            'title'       => 'Data Updated!',
+            'description' => 'Data was successfully updated',
+            'icon'        => 'success'
+        ]);
+    }
+
 
     public function delete($id){
 

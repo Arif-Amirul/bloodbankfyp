@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Register" routeBackBtn="" titleBackBtn="" disableBackBtn="">
+    <x-container title="Register User" routeBackBtn="" titleBackBtn="" disableBackBtn="">
     <form wire:submit.prevent="register" class="w-82">
                 <div>
                     <x-input wire:model.lazy="name" id="name" type="text" required autofocus  label="Full Name" />
