@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Patient Blood Request" routeBackBtn="" titleBackBtn="" disableBackBtn="">
+    <x-container title="Add Patient" routeBackBtn="" titleBackBtn="" disableBackBtn="">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <x-input label="Patient ID" placeholder="patient id" wire:model.defer="patient_id" />
             <x-input label="Full Name" placeholder="full name" wire:model.defer="patient_full_name" />

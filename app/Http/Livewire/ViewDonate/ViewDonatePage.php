@@ -5,6 +5,7 @@ namespace App\Http\Livewire\ViewDonate;
 use Livewire\Component;
 use App\Models\Donate;
 use App\Models\BloodStock;
+use App\Models\BloodInformation;
 use WireUi\Traits\Actions;
 
 class ViewDonatePage extends Component
@@ -17,6 +18,19 @@ class ViewDonatePage extends Component
     public $blood_id;
     public $donation_date;
     public $donation;
+    // public $updateModalTest = false;
+    // public $viewModalTest = false;
+
+    // public function openModalBloodTest()
+    // {
+    //     $this->updateModalTest = true;
+    // }
+
+    // public function viewModalBloodTest()
+    // {
+
+    //     $this->viewModalTest = true;
+    // }
 
     public function openModalUpdate($id){
         $this->updateModal = true;
@@ -55,6 +69,11 @@ class ViewDonatePage extends Component
         $this->blood_group= $donation->blood_group;
         $this->blood_id = $donation->blood_id;
         $this->donation_date = $donation->donation_date;
+
+        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+
+        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+                ->update(['quantity' => $bloodStock->quantity -1]);
 
         $this->dialog([
         'title'       => 'Data Deleted!',

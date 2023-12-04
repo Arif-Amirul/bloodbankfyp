@@ -8,7 +8,7 @@
             </a>
 
             <h2 class="mt-6 text-2xl font-extrabold leading-9 text-center text-gray-900">
-                Login Form
+                LOGIN
             </h2>
 
            {{-- <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">

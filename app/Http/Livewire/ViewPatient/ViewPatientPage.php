@@ -9,6 +9,7 @@ class ViewPatientPage extends Component
 {
     use Actions;
     public $updateModal = false;
+    public $viewMoreModal = false;
     public $patient_id;
     public $patient_full_name;
     public $date;
@@ -20,19 +21,23 @@ class ViewPatientPage extends Component
     public $transfer_date;
     public $patient;
 
+    public function openModalViewMore($id){
+        $this->viewMoreModal = true;
+        $this->patient = PatientCollection::find($id);
+        $this->date =  $this->patient->date;
+        $this->phone_number =   $this->patient->phone_number;
+        $this->gender =   $this->patient->gender;
+        $this->transfer_date=  $this->patient->transfer_date;
+        $this->contact =   $this->patient->contact;
+    }
+
     public function openModalUpdate($id){
         $this->updateModal = true;
         $this->patient = PatientCollection::find($id);
         $this->patient_id =   $this->patient->patient_id;
         $this->patient_full_name=   $this->patient->patient_full_name;
-        $this->date =  $this->patient->date;
-        $this->phone_number =   $this->patient->phone_number;
-        $this->gender =   $this->patient->gender;
         $this->required_blood_group =  $this->patient->required_blood_group;
         $this->location =   $this->patient->location;
-        $this->contact =   $this->patient->contact;
-        $this->transfer_date=  $this->patient->transfer_date;
-
     }
 
     public function update($id){

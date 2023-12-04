@@ -58,12 +58,6 @@ class DonorPage extends Component
             'blood_group' => $this->blood_group,
         ]);
 
-        // $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
-
-        // $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
-        //             ->update(['quantity' => $bloodStock->quantity + 1]);
-
-
         $this->dialog()->success(
             $title = 'Successfully',
             $description = 'Blood collection added succesfully.'

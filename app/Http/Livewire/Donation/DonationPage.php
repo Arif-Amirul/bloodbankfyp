@@ -16,12 +16,16 @@ class DonationPage extends Component
     public $blood_id;
     public $donation_date;
 
-    // Fetch donor information to populate the dropdown
-    // public function mount()
-    // {
-    //     $this->donorOptions = DonorInformation::pluck('donor_id', 'id');
-    // }
-    
+    public function fetchBloodGroup()
+    {
+        if ($this->donor_id) {
+            $donorInfo = DonorInformation::where('donor_id', $this->donor_id)->first();
+            if ($donorInfo) {
+                $this->blood_group = $donorInfo->blood_group;
+            }
+        }
+    }
+
     public function create() {
 
         $this->validate([
@@ -41,13 +45,10 @@ class DonationPage extends Component
             'donation_date' => $this->donation_date,
         ]);
 
-
         $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
 
         $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
                 ->update(['quantity' => $bloodStock->quantity + 1]);
-
-
 
         $this->reset([
             'donation_id',
@@ -62,10 +63,16 @@ class DonationPage extends Component
             $description = 'Donate added succesfully.'
         );
 
+
+
 }
     public function render()
     {
-        $donorOptions = DonorInformation::pluck('donor_id', 'donor_id')->unique(); // Fetch unique blood IDs
+        $donorOptions = DonorInformation::select('donor_id', 'full_name')
+        ->distinct()
+        ->get()
+        ->pluck('full_name', 'donor_id'); // Fetch unique donor IDs with full names
+
         return view('livewire.donation.donation-page', [
             'donorOptions' => $donorOptions,
         ])->extends('layouts.main');

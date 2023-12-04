@@ -6,10 +6,10 @@
                     <x-slot name="thead">
                         <x-table.table-header class="text-center" value="Donor ID" sort="" />
                         <x-table.table-header class="text-center" value="Full Name" sort="" />
-                        <x-table.table-header class="text-center" value="Identification Number" sort="" />
+                        <x-table.table-header class="text-center" value="IC Number" sort="" />
                         <x-table.table-header class="text-center" value="Phone Number" sort="" />
                         <x-table.table-header class="text-center" value="Blood Group" sort="" />
-                        <x-table.table-header class="text-center" value="More Information" sort="" />
+                        <x-table.table-header class="text-center" value="More Info" sort="" />
                         <x-table.table-header class="text-center" value="Edit" sort="" />
                     </x-slot>
                     <x-slot name="tbody">
@@ -31,15 +31,8 @@
                                     {{$item ->blood_group}}
                                 </x-table.table-body>
 
-                                {{-- <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
-                                <div class="flex items-center space-x-2">
-                                        <x-button class="bg-red-500 text-white" wire:click="openModalBloodTest" label="Add" />
-                                        <x-button class="bg-blue-500 text-white" wire:click="viewModalBloodTest" label="View" />
-                                    </div>
-                                </x-table.table-body> --}}
-
                                 <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
-                                    <x-button class="bg-blue-500 text-white" wire:click="openModalViewMore('{{$item->id}}')" label="View More" />
+                                    <x-button class="bg-blue-500 text-white" wire:click="openModalViewMore('{{$item->id}}')" label="Details" />
                                 </x-table.table-body>
 
                                 <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
@@ -53,109 +46,9 @@
                         </x-slot>
                 </x-table.table>
 
-
-                    <!--ADD BLOOD TEST-->
-                    {{-- <div>
-                        <x-modal.card title="Add Blood Test" blur wire:model.defer="updateModalTest">
-
-                             <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
-                                <x-input label="Blood ID" placeholder="blood id" wire:model.defer="blood_id" />
-                                <x-input type="date" label="Date" wire:model.defer="date" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="White blood cells" placeholder="result" wire:model.defer="white_blood_cells" />
-                                <x-input label="Neutrophils" placeholder="result" wire:model.defer="neutrophils" />
-                                <x-input label="Red blood cells" placeholder="result" wire:model.defer="red_blood_cells" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Haemoglobin" placeholder="result" wire:model.defer="haemoglobin" />
-                                <x-input label="Hematocrit" placeholder="result" wire:model.defer="hematrocrit" />
-                                <x-input label="MCV" placeholder="result" wire:model.defer="mcv" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Platelets" placeholder="result" wire:model.defer="platelets" />
-                                <x-input label="CD4+/CD8+" placeholder="result" wire:model.defer="cd4_cd8" />
-                                <x-select
-                                    label="HIV Test"
-                                    placeholder="select result"
-                                    :options="['Positive', 'Negative']"
-                                    wire:model.defer="hiv_test"
-                                />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Glicaemia" placeholder="result" wire:model.defer="glicaemia" />
-                                <x-input label="Transferrin" placeholder="result" wire:model.defer="transferrin" />
-                                <x-input label="Ferritim" placeholder="result" wire:model.defer="ferritim" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Sodium" placeholder="result" wire:model.defer="sodium" />
-                                <x-input label="Potassium" placeholder="result" wire:model.defer="potassium" />
-                                <x-input label="Calcium" placeholder="result" wire:model.defer="calcium" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Plasma proteins" placeholder="result" wire:model.defer="plasma_proteins" />
-                                <x-input label="Albumin" placeholder="result" wire:model.defer="albumin" />
-                                <x-input label="Prealbumin" placeholder="result" wire:model.defer="prealbumin" />
-                            </div>
-
-                            <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6 mt-4">
-                                <x-input label="Gamma globulins" placeholder="result" wire:model.defer="gamma_globulins" />
-                                <x-input label="ALT" placeholder="result" wire:model.defer="alt" />
-                                <x-input label="Gamma GT" placeholder="result" wire:model.defer="gamma_gt" />
-                            </div>
-
-                            <x-slot name="footer">
-                                <div class="flex justify-end gap-x-4">
-                                    <x-button flat label="Close" x-on:click="close" />
-                                    <x-button primary wire:click="create" label="Save" />
-                                </div>
-                            </x-slot>
-                        </x-modal.card>
-                    </div> --}}
-
-                    <!--VIEW BLOOD TEST-->
-                    {{-- <div>
-                        <x-modal.card title="View Blood Test" blur wire:model.defer="viewModalTest" max-width="9xl">
-                            <div>
-                                <x-table.table>
-                                    <x-slot name="thead">
-                                        <x-table.table-header class="text-center" colspan="" value="blood id" sort="" />
-                                        <x-table.table-header class="text-center" colspan="" value="date" sort="" />
-
-                                    </x-slot>
-                                    <x-slot name="tbody">
-
-                                         @foreach ($blooddata as $item)
-                                        <tr>
-                                            <x-table.table-body class="text-xs font-medium text-gray-700">
-                                                {{$item ->blood_id}}
-                                            </x-table.table-body>
-
-                                            <x-table.table-body class="text-xs font-medium text-gray-700">
-                                                {{$item ->date}}
-                                            </x-table.table-body>
-                                        </tr>
-                                        @endforeach
-                                    </x-slot>
-                                </x-table.table>
-                            </div>
-                            <x-slot name="footer">
-                                    <div class="flex justify-end gap-x-4">
-                                        <x-button flat label="Close" x-on:click="close" />
-                                    </div>
-                            </x-slot>
-                        </x-modal.card>
-                    </div> --}}
-
-                    <!--VIEW DETAILS-->
-                    <div>
-                        <x-modal.card title="View Details" blur wire:model.defer="viewMoreModal" max-width="9xl">
+                <!--VIEW DETAILS-->
+                <div>
+                    <x-modal.card title="DETAILS" blur wire:model.defer="viewMoreModal" max-width="9xl">
                             <div>
                                 <x-table.table>
                                     <x-slot name="thead">
@@ -204,19 +97,19 @@
                                         <x-button flat label="Close" x-on:click="close" />
                                     </div>
                             </x-slot>
-                        </x-modal.card>
-                    </div>
+                    </x-modal.card>
+                </div>
 
-                    <!--UPDATE DONOR -->
-                    <div>
-                        <x-modal.card title="Edit Donor" blur wire:model.defer="updateModal">
+                <!--UPDATE DONOR -->
+                <div>
+                        <x-modal.card title="UPDATE DONOR" blur wire:model.defer="updateModal">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <x-input label="Donor ID" placeholder="donor id" wire:model.defer="donor_id" />
                                     <x-input label="Full Name" placeholder="full name" wire:model.defer="full_name" />
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                                    <x-input label="Identification Number" placeholder="Identification Number" wire:model.defer="identification_number" />
+                                    <x-input label="IC Number" placeholder="IC Number" wire:model.defer="identification_number" />
                                     <x-input label="Phone Number" placeholder="phone number" wire:model.defer="phone_number" />
                                 </div>
 
@@ -271,7 +164,7 @@
                                     </div>
                                 </x-slot>
                         </x-modal.card>
-                    <div>
+                <div>
 
             </div>
         </div>

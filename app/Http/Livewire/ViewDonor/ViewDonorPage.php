@@ -114,20 +114,6 @@ class ViewDonorPage extends Component
         ]);
     }
 
-    // public $updateModalTest = false;
-    // public $viewModalTest = false;
-
-    // public function openModalBloodTest()
-    // {
-    //     $this->updateModalTest = true;
-    // }
-
-    // public function viewModalBloodTest()
-    // {
-
-    //     $this->viewModalTest = true;
-    // }
-
     public function render()
     {
         $Donor = DonorInformation::all();

@@ -125,7 +125,7 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                            title="View Blood Request"
+                            title="Manage Blood Request"
                             activeUrl="view-blood-request-page"
                             route="{{route('view-blood-request-page')}}"
                         >

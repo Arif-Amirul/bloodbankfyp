@@ -7,7 +7,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Identification Number" placeholder="Identification Number" wire:model.defer="identification_number" />
+            <x-input label="IC Number" placeholder="ic number" wire:model.defer="identification_number" />
             <x-input label="Phone Number" placeholder="phone number" wire:model.defer="phone_number" />
         </div>
 

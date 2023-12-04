@@ -20,26 +20,14 @@ return new class extends Migration
             $table->string('blood_id');
             $table->string('date');
             $table->string('white_blood_cells');
-            $table->string('neutrophils');
             $table->string('red_blood_cells');
             $table->string('haemoglobin');
             $table->string('hematrocrit');
-            $table->string('mcv');
             $table->string('platelets');
-            $table->string('cd4_cd8');
             $table->string('hiv_test');
-            $table->string('glicaemia');
-            $table->string('transferrin');
-            $table->string('ferritim');
             $table->string('sodium');
             $table->string('potassium');
             $table->string('calcium');
-            $table->string('plasma_proteins');
-            $table->string('albumin');
-            $table->string('prealbumin');
-            $table->string('gamma_globulins');
-            $table->string('alt');
-            $table->string('gamma_gt');
             $table->timestamps();
         });
     }

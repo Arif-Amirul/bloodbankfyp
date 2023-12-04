@@ -7,8 +7,8 @@
                         <x-table.table-header class="text-center" value="Test ID" sort="" />
                         <x-table.table-header class="text-center" value="Blood ID" sort="" />
                         <x-table.table-header class="text-center" value="Test Date" sort="" />
-                        <x-table.table-header class="text-center" value="Test Result" sort="" />
-                        <x-table.table-header class="text-center" value="Edit" sort="" />
+                        <x-table.table-header class="text-left" value="Test Result" sort="" />
+                        <x-table.table-header class="text-left" value="Edit" sort="" />
 
                     </x-slot>
                     <x-slot name="tbody">
@@ -26,9 +26,9 @@
                             {{$item ->date}}
                         </x-table.table-body>
 
-                        <x-table.table-body class="text-xs font-medium text-gray-700 text-center" >
+                        <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
                             <div class="flex items-center space-x-2">
-                                <x-button class="bg-blue-500 text-white" wire:click="openModalViewTestMore('{{$item->id}}')" label="View More" />
+                                <x-button class="bg-blue-500 text-white" wire:click="openModalViewTestMore('{{$item->id}}')" label="Details" />
                             </div>
                         </x-table.table-body>
 
@@ -44,32 +44,20 @@
                 </x-table.table>
             </div>
             <!--VIEW DETAILS-->
-            <div>
-                    <x-modal.card title="Test Result" blur wire:model.defer="viewTestMoreModal" max-width="9xl">
+            {{-- <div>
+                    <x-modal.card title="TEST RESULT" blur wire:model.defer="viewTestMoreModal" max-width="9xl">
                         <div>
                             <x-table.table>
                                 <x-slot name="thead">
                                     <x-table.table-header class="text-center" value="White blood cells" sort="" />
-                                    <x-table.table-header class="text-center" value="Neutrophils" sort="" />
                                     <x-table.table-header class="text-center" value="Red blood cells" sort="" />
                                     <x-table.table-header class="text-center" value="Haemoglobin" sort="" />
                                     <x-table.table-header class="text-center" value="Hematocrit" sort="" />
-                                    <x-table.table-header class="text-center" value="MCV" sort="" />
                                     <x-table.table-header class="text-center" value="Platelets" sort="" />
-                                    <x-table.table-header class="text-center" value="CD4+/CD8+" sort="" />
                                     <x-table.table-header class="text-center" value="HIV test" sort="" />
-                                    <x-table.table-header class="text-center" value="Glicaemia" sort="" />
-                                    <x-table.table-header class="text-center" value="Transferrin" sort="" />
-                                    <x-table.table-header class="text-center" value="Ferritim" sort="" />
                                     <x-table.table-header class="text-center" value="Na+" sort="" />
                                     <x-table.table-header class="text-center" value="K+" sort="" />
                                     <x-table.table-header class="text-center" value="Ca++" sort="" />
-                                    <x-table.table-header class="text-center" value="Plasma proteins" sort="" />
-                                    <x-table.table-header class="text-center" value="Albumin" sort="" />
-                                    <x-table.table-header class="text-center" value="Prealbumin" sort="" />
-                                    <x-table.table-header class="text-center" value="Gamma globulins" sort="" />
-                                    <x-table.table-header class="text-center" value="ALT" sort="" />
-                                    <x-table.table-header class="text-center" value="Gamma GT" sort="" />
                                     <x-table.table-header class="text-center" value="Blood Status" sort="" />
                                 </x-slot>
 
@@ -77,10 +65,6 @@
                                     <tr>
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                                             {{$white_blood_cells}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$neutrophils}}
                                         </x-table.table-body>
 
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
@@ -96,31 +80,11 @@
                                         </x-table.table-body>
 
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$mcv}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                                             {{$platelets}}
                                         </x-table.table-body>
 
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$cd4_cd8}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                                             {{$hiv_test}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$glicaemia}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$transferrin}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$ferritim}}
                                         </x-table.table-body>
 
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
@@ -136,30 +100,6 @@
                                         </x-table.table-body>
 
                                         <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$plasma_proteins}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$albumin}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$prealbumin}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$gamma_globulins}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$alt}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
-                                            {{$gamma_gt}}
-                                        </x-table.table-body>
-
-                                        <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center" >
                                             {{$blood_status}}
                                         </x-table.table-body>
                                     </tr>
@@ -172,11 +112,73 @@
                                 </div>
                         </x-slot>
                     </x-modal.card>
+            </div> --}}
+            <div>
+                <x-modal.card title="TEST RESULT" blur wire:model.defer="viewTestMoreModal" max-width="9xl">
+                    <div>
+                        <table class="border-collapse w-full">
+                            <thead>
+                                <tr class="bg-gray-200">
+                                    <th class="py-2 px-4 border">Lab Test</th>
+                                    <th class="py-2 px-4 border">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">White Blood Cells</td>
+                                    <td class="py-2 px-4 border">{{$white_blood_cells}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Red Blood Cells</td>
+                                    <td class="py-2 px-4 border">{{$red_blood_cells}}</td>
+                                </tr>
+                                <!-- Repeat until all parameters and their results are included -->
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Haemoglobin</td>
+                                    <td class="py-2 px-4 border">{{$haemoglobin}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Hematrocrit</td>
+                                    <td class="py-2 px-4 border">{{$hematrocrit}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Platelets</td>
+                                    <td class="py-2 px-4 border">{{$platelets}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Hiv Test</td>
+                                    <td class="py-2 px-4 border">{{$hiv_test}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Sodium</td>
+                                    <td class="py-2 px-4 border">{{$sodium}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Potassium</td>
+                                    <td class="py-2 px-4 border">{{$potassium}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Calcium</td>
+                                    <td class="py-2 px-4 border">{{$calcium}}</td>
+                                </tr>
+                                <tr class="border">
+                                    <td class="py-2 px-4 border">Blood Status</td>
+                                    <td class="py-2 px-4 border">{{$blood_status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <x-slot name="footer">
+                        <div class="flex justify-end gap-x-4">
+                            <x-button flat label="Close" x-on:click="close" />
+                        </div>
+                    </x-slot>
+                </x-modal.card>
             </div>
 
-              <!--UPDATE DONOR -->
+            <!--UPDATE BLOOD TEST -->
             <div>
-                <x-modal.card title="Edit Blood Test" blur wire:model.defer="updateTestModal">
+                <x-modal.card title="UPDATE BLOOD TEST" blur wire:model.defer="updateTestModal">
                     <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
                         <x-input label="Test ID" placeholder="test id" wire:model.defer="test_id" />
                         <x-input type="date" label="Test Date" wire:model.defer="date" />

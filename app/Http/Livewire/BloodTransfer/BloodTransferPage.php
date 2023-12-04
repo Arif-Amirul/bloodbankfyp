@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\BloodTransfer;
+use App\Models\BloodInformation;
 use App\Models\BloodStock;
 use App\Models\BloodRequest;
 use App\Models\Donate;
@@ -18,6 +19,16 @@ class BloodTransferPage extends Component
     public $patient_id;
     public $blood_id;
     public $blood_group;
+
+    // Method to handle patient ID selection change
+    public function updatedPatientId($value)
+    {
+        // Fetch the required blood group based on the selected patient ID
+        $patient = PatientCollection::where('patient_id', $value)->first();
+        if ($patient) {
+            $this->required_blood_group = $patient->required_blood_group;
+        }
+    }
 
     public function transfer() {
 
@@ -55,11 +66,26 @@ class BloodTransferPage extends Component
 
     public function render()
     {
-        $patientIds = PatientCollection::pluck('patient_id', 'patient_id')->unique();
-        $bloodIds = Donate::pluck('blood_id', 'blood_id')->unique();
+        $patientOptions = PatientCollection::select('patient_id', 'patient_full_name')
+            ->distinct()
+            ->get()
+            ->pluck('patient_full_name', 'patient_id'); // Fetch unique patient IDs with full names
+
+         // Fetch blood_id and blood_status from tables using join
+            $bloodData = Donate::join('blood_information', 'donate.blood_id', '=', 'blood_information.blood_id')
+            ->select('donate.blood_id', 'blood_information.blood_status')
+            ->distinct()
+            ->get();
+
+        // Prepare an associative array of bloodid => bloodstatus
+        $bloodIds = [];
+        foreach ($bloodData as $data) {
+            $bloodIds[$data->blood_id] = $data->blood_status;
+        }
+
         return view('livewire.blood-transfer.blood-transfer-page', [
-            'patientIds' => $patientIds,
-            'bloodIds' => $bloodIds,
+            'patientOptions' => $patientOptions,
+            'bloodIds' => $bloodIds, // Pass the associative array containing bloodid => bloodstatus
         ])->extends('layouts.main');
     }
 }

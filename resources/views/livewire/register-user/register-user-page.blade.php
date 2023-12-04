@@ -1,6 +1,6 @@
 <div>
     <x-container title="Register User" routeBackBtn="" titleBackBtn="" disableBackBtn="">
-    <form wire:submit.prevent="register" class="w-82">
+    <form wire:submit.prevent="register" class="w-80">
                 <div>
                     <x-input wire:model.lazy="name" id="name" type="text" required autofocus  label="Full Name" />
                 </div>
@@ -26,7 +26,7 @@
                 </div>
             </form>
 
-            {{-- <div class="grid grid-cols-1">
+            <div class="grid grid-cols-1 mt-5">
                 <div>
                     <x-table.table>
                         <x-slot name="thead">
@@ -39,27 +39,26 @@
                         <x-slot name="tbody">
                     </div>
                                 <tr>
-                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                         1
                                     </x-table.table-body>
-                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                         1
                                     </x-table.table-body>
-                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 ">
+                                    <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                         1
                                     </x-table.table-body>
-                                    <x-table.table-body class="text-xs font-medium text-gray-700">
+                                    <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
                                         <div class="flex items-center space-x-2">
                                             <x-button class="bg-green-500 text-white" wire:click="" label="Update" />
                                             <x-button class="bg-red-500 text-white" wire:click="" label="Delete" />
                                         </div>
                                     </x-table.table-body>
                                 </tr>
-
                             </x-slot>
                     </x-table.table>
 
-            </div> --}}
+            </div>
     </x-container>
 
 </div>
