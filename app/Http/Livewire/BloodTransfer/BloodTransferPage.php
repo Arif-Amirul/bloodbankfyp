@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\BloodTransfer;
 use App\Models\BloodInformation;
 use App\Models\BloodStock;
-use App\Models\BloodRequest;
+use App\Models\BloodTransfer;
 use App\Models\Donate;
 use App\Models\PatientCollection;
 use Livewire\Component;
@@ -27,6 +27,7 @@ class BloodTransferPage extends Component
         $patient = PatientCollection::where('patient_id', $value)->first();
         if ($patient) {
             $this->required_blood_group = $patient->required_blood_group;
+            $this->location = $patient->location;
         }
     }
 
@@ -42,25 +43,65 @@ class BloodTransferPage extends Component
 
         ]);
 
-        BloodRequest::create([
-            'user_id' => auth()->user()->id,
-            'transfer_id'=> $this->transfer_id,
-            'transfer_date'=> $this->transfer_date,
-            'location'=> $this->location,
-            'required_blood_group'=> $this->required_blood_group,
-            'patient_id'=> $this->patient_id,
-            'blood_id'=> $this->blood_id,
-        ]);
+        // BloodTransfer::create([
+        //     'user_id' => auth()->user()->id,
+        //     'transfer_id'=> $this->transfer_id,
+        //     'transfer_date'=> $this->transfer_date,
+        //     'location'=> $this->location,
+        //     'required_blood_group'=> $this->required_blood_group,
+        //     'patient_id'=> $this->patient_id,
+        //     'blood_id'=> $this->blood_id,
+        // ]);
 
-        $bloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )->first();
 
-        $updateBloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )
+        // $bloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )->first();
+
+        // $updateBloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )
+        //         ->update(['quantity' => $bloodStock->quantity - 1]);
+
+        // $this->dialog()->success(
+        //     $title = 'Successfully',
+        //     $description = 'Blood request succesfully.'
+        // );
+        $bloodStock = BloodStock::where('blood_type', $this->required_blood_group)->first();
+
+        if ($bloodStock && $bloodStock->quantity > 0) {
+            // Deduct from stock only if quantity is available
+            $updateBloodStock = BloodStock::where('blood_type', $this->required_blood_group)
                 ->update(['quantity' => $bloodStock->quantity - 1]);
 
-        $this->dialog()->success(
-            $title = 'Successfully',
-            $description = 'Blood request succesfully.'
-        );
+                BloodTransfer::create([
+                    'user_id' => auth()->user()->id,
+                    'transfer_id'=> $this->transfer_id,
+                    'transfer_date'=> $this->transfer_date,
+                    'location'=> $this->location,
+                    'required_blood_group'=> $this->required_blood_group,
+                    'patient_id'=> $this->patient_id,
+                    'blood_id'=> $this->blood_id,
+                ]);
+
+
+            $this->dialog()->success(
+                $title = 'Successfully',
+                $description = 'Blood request successfully.'
+            );
+        } else {
+            // Display error if blood stock is not available
+            $this->dialog()->error(
+                $title = 'Error',
+                $description = 'Blood stock not available.'
+            );
+        }
+
+            $this->reset([
+            'transfer_id',
+            'transfer_date',
+            'location',
+            'required_blood_group',
+            'patient_id',
+            'blood_id',
+        ]);
+
 
     }
 

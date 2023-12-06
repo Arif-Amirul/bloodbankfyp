@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\ViewBloodRequest;
-use App\Models\BloodRequest;
+use App\Models\BloodTransfer;
 use App\Models\PatientCollection;
 use WireUi\Traits\Actions;
 use Livewire\Component;
@@ -17,7 +17,7 @@ class ViewBloodRequestPage extends Component
     public $required_blood_group;
     public $patient_id;
     public $blood_id;
-    public $transfer;
+    public $Transfer;
 
     public $details = false;
     public $detailTransfer;
@@ -31,34 +31,36 @@ class ViewBloodRequestPage extends Component
         $this->details = true;
         $this->detailTransfer = PatientCollection::find($id);
         // Fetching specific attributes from the PatientCollection model
-        $this->patient_id = $this->detailTransfer->patient_id;
-        $this->patient_full_name = $this->detailTransfer->patient_full_name;
-        $this->required_blood_group = $this->detailTransfer->required_blood_group;
-        $this->date = $this->detailTransfer->date;
-        $this->phone_number = $this->detailTransfer->phone_number;
-        $this->gender = $this->detailTransfer->gender;
-        $this->location = $this->detailTransfer->location;
-        $this->contact = $this->detailTransfer->contact;
-        $this->transfer_date = $this->detailTransfer->transfer_date;
+        // $this->patient_id = $this->detailTransfer->patient_id;
+        // $this->patient_full_name = $this->detailTransfer->patient_full_name;
+        // $this->required_blood_group = $this->detailTransfer->required_blood_group;
+        // $this->date = $this->detailTransfer->date;
+        // $this->phone_number = $this->detailTransfer->phone_number;
+        // $this->gender = $this->detailTransfer->gender;
+        // $this->location = $this->detailTransfer->location;
+        // $this->contact = $this->detailTransfer->contact;
+        // $this->transfer_date = $this->detailTransfer->transfer_date;
 
     }
 
-    public function openModalUpdate($id){
-        $this->updateModal = true;
-        $this->transfer = BloodRequest::find($id);
-        $this->transfer_id = $this->transfer->transfer_id;
-        $this->transfer_date = $this->transfer->transfer_date;
-        $this->location = $this->transfer->location;
-        $this->required_blood_group = $this->transfer->required_blood_group;
-    }
+    // public function openModalUpdate($id){
+    //     $this->updateModal = true;
+    //     $this->transfer = BloodRequest::find($id);
+    //     $this->transfer_id = $this->transfer->transfer_id;
+    //     $this->transfer_date = $this->transfer->transfer_date;
+    //     $this->location = $this->transfer->location;
+    //     $this->required_blood_group = $this->transfer->required_blood_group;
+    // }
 
     public function delete($id){
-        $transfer = BloodRequest::find($id);
-        $transfer->delete();
-        $this->transfer_id = $this->transfer->transfer_id;
-        $this->transfer_date = $this->transfer->transfer_date;
-        $this->location = $this->transfer->location;
-        $this->required_blood_group = $this->transfer->required_blood_group;
+        $Transfer = BloodTransfer::find($id);
+        $Transfer->delete();
+        $this->transfer_id = $this->Transfer->transfer_id;
+        $this->transfer_date = $this->Transfer->transfer_date;
+        $this->location = $this->Transfer->location;
+        $this->required_blood_group = $this->Transfer->required_blood_group;
+        $this->patient_id = $this->Transfer->patient_id;
+        $this->blood_id = $this->Transfer->blood_id;
 
         $this->dialog([
             'title'       => 'Data Deleted!',
@@ -69,7 +71,7 @@ class ViewBloodRequestPage extends Component
 
     public function render()
     {
-        $Transfer = BloodRequest::all();
+        $Transfer = BloodTransfer::all();
 
         return view('livewire.view-blood-request.view-blood-request-page', [
             'datatransfer' =>    $Transfer,

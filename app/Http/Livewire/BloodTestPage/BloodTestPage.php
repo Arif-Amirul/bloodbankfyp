@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\BloodTestPage;
 use App\Models\BloodInformation;
-use App\Models\BloodStock;
+use App\Models\DonorInformation;
 use App\Models\Donate;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -81,14 +81,18 @@ class BloodTestPage extends Component
             $description = 'Blood collection added succesfully.'
         );
 
-
-
     }
     public function render()
-    {
-        $bloodIds = Donate::pluck('blood_id', 'blood_id')->unique(); // Fetch unique blood IDs
-        return view('livewire.blood-test-page.blood-test-page', [
-            'bloodIds' => $bloodIds,
-        ])->extends('layouts.main');
-    }
+{
+    // Fetch blood_id and fullname from tables using join
+    $bloodData = Donate::join('donor_information', 'donate.donor_id', '=', 'donor_information.donor_id')
+        ->select('donate.blood_id', 'donor_information.full_name')
+        ->distinct()
+        ->pluck('donor_information.full_name', 'donate.blood_id'); // Fetch unique blood IDs with full names
+
+    return view('livewire.blood-test-page.blood-test-page', [
+        'bloodData' => $bloodData,
+    ])->extends('layouts.main');
+}
+
 }

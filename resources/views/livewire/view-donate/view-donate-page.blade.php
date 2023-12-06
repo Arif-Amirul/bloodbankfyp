@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Manage Donor" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
+    <x-container title="Manage Donation" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="grid grid-cols-1">
             <div>
                 <x-table.table>

@@ -1,7 +1,7 @@
 <div>
     <x-container title="Blood Test Result" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
         <div class="col-span-1 sm:col-span-2 sm:grid sm:grid-cols-3 sm:gap-6">
-            <div class="relative">
+            {{-- <div class="relative">
                 <label for="blood_id" class="block text-sm font-medium text-gray-700">Blood ID</label>
                 <select wire:model.defer="blood_id" id="blood_id" name="blood_id"
                         class="mt-1 block w-full py-2 px-3 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -11,7 +11,19 @@
                     @endforeach
                 </select>
                 @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
+            </div> --}}
+            <div class="relative">
+                <label for="blood_id" class="block text-sm font-medium text-gray-700">Blood ID</label>
+                <select wire:model.defer="blood_id" id="blood_id" name="blood_id"
+                        class="mt-1 block w-full py-2 px-3 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select Blood ID</option>
+                    @foreach($bloodData as $bloodId => $fullname)
+                        <option value="{{ $bloodId }}">{{ $bloodId }} - {{ $fullname }}</option>
+                    @endforeach
+                </select>
+                @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
+
             <x-input type="date" label="Test Date" wire:model.defer="date" />
             <x-input label="Test ID" placeholder="test id" wire:model.defer="test_id" />
         </div>

@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Manage Blood Request" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
+    <x-container title="Manage Blood Transfer" routeBackBtn="" titleBackBtn="" disableBackBtn="" >
             <div class="grid grid-cols-1">
                 <div>
                     <x-table.table>
@@ -25,7 +25,7 @@
                                     </x-table.table-body>
 
                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
-                                        {{$item ->location	}}
+                                        {{$item ->location}}
                                     </x-table.table-body>
 
                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">

@@ -1,5 +1,5 @@
 <div>
-    <x-container title="Blood Request" routeBackBtn="" titleBackBtn="" disableBackBtn="">
+    <x-container title="Blood Transfer" routeBackBtn="" titleBackBtn="" disableBackBtn="">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <x-input label="Transfer ID" placeholder="transfer id" wire:model.defer="transfer_id" />
             <x-input type="date" label="Transfer Date" wire:model.defer="transfer_date" />
@@ -54,7 +54,7 @@
                 @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
         </div>
-        
+
         <div class="mt-4">
             <x-button primary wire:click="transfer" label="Transfer" />
         </div>

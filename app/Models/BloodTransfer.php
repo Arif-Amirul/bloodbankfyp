@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BloodRequest extends Model
+class BloodTransfer extends Model
 {
     use HasFactory;
-    protected $table = 'blood_requests';
+    protected $table = 'blood_transfers';
     protected $fillable = [
         'user_id',
         'transfer_id',
@@ -19,5 +19,8 @@ class BloodRequest extends Model
         'blood_id',
     ];
 
-    public $timestamps = false;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
