@@ -70,10 +70,10 @@ class ViewDonatePage extends Component
         $this->blood_id = $donation->blood_id;
         $this->donation_date = $donation->donation_date;
 
-        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+        // $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
 
-        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
-                ->update(['quantity' => $bloodStock->quantity -1]);
+        // $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+        //         ->update(['quantity' => $bloodStock->quantity -1]);
 
         $this->dialog([
         'title'       => 'Data Deleted!',

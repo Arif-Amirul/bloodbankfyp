@@ -13,10 +13,9 @@
         </div>
     </div>
 
-
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         <div class="ml-3">
-            <div class="text-red-800 text-left text-2xl font-semibold">Blood Group</div>
+            <div class="text-red-800 text-left text-2xl font-semibold">Blood Group Quantity Monitor</div>
         </div>
     </div>
 
@@ -26,7 +25,7 @@
                  <div class="text-red-800 text-left text-6xl ">A+</div>
             </div>
              <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_plus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_plus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -35,7 +34,7 @@
                  <div class="text-red-800 text-left text-6xl ">A-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_minus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodA_minus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -44,7 +43,7 @@
                  <div class="text-red-800 text-left text-6xl ">B+</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_plus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_plus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -53,7 +52,7 @@
                  <div class="text-red-800 text-left text-6xl ">B-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_minus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodB_minus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
     </div>
@@ -64,7 +63,7 @@
                  <div class="text-red-800 text-left text-6xl ">O-</div>
             </div>
              <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodO_plus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodO_plus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -73,7 +72,7 @@
                  <div class="text-red-800 text-left text-6xl ">O+</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{$bloodO_minus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{$bloodO_minus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -82,7 +81,7 @@
                  <div class="text-red-800 text-left text-6xl ">AB+</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_plus }} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_plus }} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
 
@@ -91,7 +90,7 @@
                  <div class="text-red-800 text-left text-6xl ">AB-</div>
             </div>
             <div class="mx-auto">
-                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_minus}} bag</h4>
+                <h4 class="text-4xl font-semibold text-gray-600">{{ $bloodAB_minus}} <span style="font-size: smaller;"> bags</span></h4>
             </div>
         </div>
     </div>

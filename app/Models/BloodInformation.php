@@ -14,6 +14,7 @@ class BloodInformation extends Model
         'user_id',
         'test_id',
         'blood_id',
+        'blood_group',
         'date',
         'white_blood_cells',
         // 'neutrophils',

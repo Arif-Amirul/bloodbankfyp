@@ -38,7 +38,9 @@
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-700">
                                 <x-icon name="logout" class="w-4 h-4 mr-2" />
+                                <span class="text-primary-800 bg-clip-text dark:text-primary-500 ">
                                 Log Out
+                                </span>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf

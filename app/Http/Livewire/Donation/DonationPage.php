@@ -45,10 +45,10 @@ class DonationPage extends Component
             'donation_date' => $this->donation_date,
         ]);
 
-        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+        // $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
 
-        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
-                ->update(['quantity' => $bloodStock->quantity + 1]);
+        // $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+        //         ->update(['quantity' => $bloodStock->quantity + 1]);
 
         $this->reset([
             'donation_id',

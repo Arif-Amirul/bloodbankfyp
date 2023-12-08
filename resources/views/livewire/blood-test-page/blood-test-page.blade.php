@@ -14,7 +14,7 @@
             </div> --}}
             <div class="relative">
                 <label for="blood_id" class="block text-sm font-medium text-gray-700">Blood ID</label>
-                <select wire:model.defer="blood_id" id="blood_id" name="blood_id"
+                <select wire:model="blood_id" wire:change="updatedBloodId($this->blood_id)" id="blood_id" name="blood_id"
                         class="mt-1 block w-full py-2 px-3 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <option value="">Select Blood ID</option>
                     @foreach($bloodData as $bloodId => $fullname)
@@ -23,7 +23,6 @@
                 </select>
                 @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
             </div>
-
             <x-input type="date" label="Test Date" wire:model.defer="date" />
             <x-input label="Test ID" placeholder="test id" wire:model.defer="test_id" />
         </div>
@@ -58,6 +57,7 @@
                 :options="['Approved', 'Rejected']"
                 wire:model.defer="blood_status"
             />
+            <x-input label="Blood Group" placeholder="blood group" wire:model.defer="blood_group" readonly/>
         </div>
 
         <div class="mt-4">

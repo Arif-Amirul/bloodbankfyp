@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\ViewBloodTest;
 use Livewire\Component;
 use App\Models\BloodInformation;
+use App\Models\BloodStock;
 use WireUi\Traits\Actions;
 
 class ViewBloodTestPage extends Component
@@ -12,6 +13,7 @@ class ViewBloodTestPage extends Component
     public $viewTestMoreModal = false;
     public $test_id;
     public $blood_id;
+    public $blood_group;
     public $date;
     public $white_blood_cells;
     public $red_blood_cells;
@@ -89,6 +91,7 @@ class ViewBloodTestPage extends Component
         $BloodTest->delete();
         $this->test_id = $BloodTest->test_id;
         $this->blood_id = $BloodTest->blood_id;
+        $this->blood_group = $BloodTest->blood_group;
         $this->date = $BloodTest->date;
         $this->white_blood_cells = $BloodTest->white_blood_cells;
         $this->red_blood_cells = $BloodTest->red_blood_cells;
@@ -106,6 +109,12 @@ class ViewBloodTestPage extends Component
             'description' => 'Data was successfully deleted',
             'icon'        => 'success'
         ]);
+
+        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+
+        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+                ->update(['quantity' => $bloodStock->quantity - 1]);
+
     }
 
     public function render()

@@ -37,24 +37,26 @@
 
                         </x-slot>
                         <x-slot name="tbody">
-                    </div>
+                        </div>
+                        @foreach($users as $user)
                                 <tr>
                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
-                                        1
+                                        {{ $user->name }}
                                     </x-table.table-body>
                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
-                                        1
+                                        {{ $user->email }}
                                     </x-table.table-body>
                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
-                                        1
+                                        *******
                                     </x-table.table-body>
                                     <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
                                         <div class="flex items-center space-x-2">
                                             <x-button class="bg-green-500 text-white" wire:click="" label="Update" />
-                                            <x-button class="bg-red-500 text-white" wire:click="" label="Delete" />
+                                            <x-button class="bg-red-500 text-white" wire:click="deleteUser({{ $user->id }})" label="Delete" />
                                         </div>
                                     </x-table.table-body>
                                 </tr>
+                                @endforeach
                             </x-slot>
                     </x-table.table>
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\BloodTestPage;
 use App\Models\BloodInformation;
-use App\Models\DonorInformation;
+use App\Models\BloodStock;
 use App\Models\Donate;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -13,6 +13,7 @@ class BloodTestPage extends Component
     use Actions;
     public $test_id;
     public $blood_id;
+    public $blood_group;
     public $date;
     public $white_blood_cells;
     public $red_blood_cells;
@@ -26,11 +27,20 @@ class BloodTestPage extends Component
     public $blood_status;
 
 
+    public function updatedBloodId($value)
+    {
+        $this->blood_group = Donate::join('donor_information', 'donate.donor_id', '=', 'donor_information.donor_id')
+            ->where('donate.blood_id', $value)
+            ->value('donor_information.blood_group');
+    }
+
+
     public function create() {
 
         $this->validate([
             'test_id' => 'required',
             'blood_id' => 'required',
+            'blood_group' => 'required',
             'date' => 'required',
             'white_blood_cells' => 'required',
             'red_blood_cells'=> 'required',
@@ -48,6 +58,7 @@ class BloodTestPage extends Component
             'user_id' => auth()->user()->id,
             'test_id'=> $this->test_id,
             'blood_id'=> $this->blood_id,
+            'blood_group'=> $this->blood_group,
             'date'=> $this->date,
             'white_blood_cells'=> $this->white_blood_cells,
             'red_blood_cells'=> $this->red_blood_cells,
@@ -61,9 +72,16 @@ class BloodTestPage extends Component
             'blood_status'=> $this->blood_status,
         ]);
 
+
+        $bloodStock = BloodStock::where('blood_type' ,$this->blood_group )->first();
+
+        $updateBloodStock = BloodStock::where('blood_type' ,$this->blood_group )
+                ->update(['quantity' => $bloodStock->quantity + 1]);
+
         $this->reset([
             'test_id',
             'blood_id',
+            'blood_group',
             'date',
             'white_blood_cells',
             'red_blood_cells',

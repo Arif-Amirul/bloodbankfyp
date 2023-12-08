@@ -43,26 +43,6 @@ class BloodTransferPage extends Component
 
         ]);
 
-        // BloodTransfer::create([
-        //     'user_id' => auth()->user()->id,
-        //     'transfer_id'=> $this->transfer_id,
-        //     'transfer_date'=> $this->transfer_date,
-        //     'location'=> $this->location,
-        //     'required_blood_group'=> $this->required_blood_group,
-        //     'patient_id'=> $this->patient_id,
-        //     'blood_id'=> $this->blood_id,
-        // ]);
-
-
-        // $bloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )->first();
-
-        // $updateBloodStock = BloodStock::where('blood_type' ,$this->required_blood_group )
-        //         ->update(['quantity' => $bloodStock->quantity - 1]);
-
-        // $this->dialog()->success(
-        //     $title = 'Successfully',
-        //     $description = 'Blood request succesfully.'
-        // );
         $bloodStock = BloodStock::where('blood_type', $this->required_blood_group)->first();
 
         if ($bloodStock && $bloodStock->quantity > 0) {
@@ -115,6 +95,7 @@ class BloodTransferPage extends Component
          // Fetch blood_id and blood_status from tables using join
             $bloodData = Donate::join('blood_information', 'donate.blood_id', '=', 'blood_information.blood_id')
             ->select('donate.blood_id', 'blood_information.blood_status')
+            ->where('blood_information.blood_status', '=', 'approved')
             ->distinct()
             ->get();
 

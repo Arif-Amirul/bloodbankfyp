@@ -55,7 +55,7 @@
                         </x-sidebar.nav-item>
 
                         <x-sidebar.nav-item
-                        title="Donate"
+                        title="Donation"
                         activeUrl="donation-page"
                         route="{{route('donation-page')}}"
                         >
