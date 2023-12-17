@@ -27,7 +27,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
             <x-input label="Location" placeholder="location" wire:model.defer="location" />
-            <x-input label="Contact" placeholder="Contact" wire:model.defer="contact" />
+            <x-input label="Location Contact" placeholder="location contact" wire:model.defer="contact" />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">

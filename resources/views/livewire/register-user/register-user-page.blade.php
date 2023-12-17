@@ -51,7 +51,7 @@
                                     </x-table.table-body>
                                     <x-table.table-body class="text-xs font-medium text-gray-700 text-center">
                                         <div class="flex items-center space-x-2">
-                                            <x-button class="bg-green-500 text-white" wire:click="" label="Update" />
+                                            {{-- <x-button class="bg-green-500 text-white" wire:click="" label="Update" /> --}}
                                             <x-button class="bg-red-500 text-white" wire:click="deleteUser({{ $user->id }})" label="Delete" />
                                         </div>
                                     </x-table.table-body>

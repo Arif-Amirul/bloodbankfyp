@@ -20,12 +20,31 @@ class BloodTransferPage extends Component
     public $blood_id;
     public $blood_group;
 
+    public $selectedBloodIds = [];
+
+    // Method to handle blood ID selection change
+    public function updatedBloodId($value)
+    {
+        if (in_array($value, $this->selectedBloodIds)) {
+            $this->dialog()->error(
+                $title = 'Error',
+                $description = 'This blood ID has already been selected.'
+            );
+            // Reset the blood ID selection to prevent duplicates
+            $this->reset('blood_id');
+        } else {
+            // Add the selected blood ID to the array
+            $this->selectedBloodIds[] = $value;
+        }
+    }
+
     // Method to handle patient ID selection change
     public function updatedPatientId($value)
     {
         // Fetch the required blood group based on the selected patient ID
         $patient = PatientCollection::where('patient_id', $value)->first();
         if ($patient) {
+            $this->transfer_date = $patient->transfer_date;
             $this->required_blood_group = $patient->required_blood_group;
             $this->location = $patient->location;
         }

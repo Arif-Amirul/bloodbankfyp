@@ -36,8 +36,13 @@ class ViewPatientPage extends Component
         $this->patient = PatientCollection::find($id);
         $this->patient_id =   $this->patient->patient_id;
         $this->patient_full_name=   $this->patient->patient_full_name;
+        $this->date =  $this->patient->date;
+        $this->phone_number =   $this->patient->phone_number;
+        $this->gender =   $this->patient->gender;
         $this->required_blood_group =  $this->patient->required_blood_group;
         $this->location =   $this->patient->location;
+        $this->contact =   $this->patient->contact;
+        $this->transfer_date =   $this->patient->transfer_date;
     }
 
     public function update($id){

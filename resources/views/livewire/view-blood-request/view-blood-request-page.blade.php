@@ -11,7 +11,6 @@
                             <x-table.table-header class="text-center" value="Patient ID" sort="" />
                             <x-table.table-header class="text-center" value="Blood ID" sort="" />
                             <x-table.table-header class="text-center" value="Edit" sort="" />
-                            <x-table.table-header class="text-center" value="Detail" sort="" />
                         </x-slot>
                         <x-slot name="tbody">
                             @foreach ($datatransfer as $item)
@@ -43,13 +42,8 @@
                                     <x-table.table-body class="text-xs font-medium text-gray-700">
                                         <div class="flex items-center space-x-2">
                                             {{-- <x-button class="bg-green-500 text-white" wire:click="openModalUpdate('{{$item->id}}')" label="Update" /> --}}
+                                                <x-button class="bg-blue-500 text-white" wire:click="openModalDetail('{{$item->id}}')" label="Detail" />
                                             <x-button class="bg-red-500 text-white" wire:click="delete('{{$item->id}}')" label="Delete" />
-                                        </div>
-                                    </x-table.table-body>
-
-                                    <x-table.table-body class="text-xs font-medium text-gray-700">
-                                        <div class="flex items-center space-x-2">
-                                            <x-button class="bg-blue-500 text-white" wire:click="openModalDetail('{{$item->id}}')" label="Detail" />
                                         </div>
                                     </x-table.table-body>
                                 </tr>
@@ -100,9 +94,9 @@
                                                 <x-table.table-header class="text-center" value="Location" sort="" />
                                                 <x-table.table-header class="text-center" value="Contact" sort="" />
                                                 <x-table.table-header class="text-center" value="Transfer Date" sort="" />
-
                                     </x-slot>
-                                            <x-slot name="tbody">
+
+                                    <x-slot name="tbody">
                                                 <tr>
                                                     <x-table.table-body colspan="" class="text-xs font-medium text-gray-700 text-center">
                                                         {{ $patient_id }}
@@ -132,12 +126,13 @@
                                                         {{ $transfer_date }}
                                                     </x-table.table-body>
                                                 </tr>
-                                            </x-slot>
+                                    </x-slot>
                                 </x-table.table>
                             </div>
                             <x-slot name="footer">
                                 <div class="flex justify-end gap-x-4">
                                     <x-button flat label="Close" x-on:click="close" />
+                                    <x-button primary x-on:click="generatePDF" label="Generate PDF Report" />
                                 </div>
                             </x-slot>
                         </x-modal.card>

@@ -17,7 +17,7 @@ class ViewBloodRequestPage extends Component
     public $required_blood_group;
     public $patient_id;
     public $blood_id;
-    public $Transfer;
+    public $transfer;
 
     public $details = false;
     public $detailTransfer;
@@ -29,52 +29,77 @@ class ViewBloodRequestPage extends Component
 
     public function openModalDetail($id){
         $this->details = true;
-        $this->detailTransfer = PatientCollection::find($id);
-        // Fetching specific attributes from the PatientCollection model
-        // $this->patient_id = $this->detailTransfer->patient_id;
-        // $this->patient_full_name = $this->detailTransfer->patient_full_name;
-        // $this->required_blood_group = $this->detailTransfer->required_blood_group;
-        // $this->date = $this->detailTransfer->date;
-        // $this->phone_number = $this->detailTransfer->phone_number;
-        // $this->gender = $this->detailTransfer->gender;
-        // $this->location = $this->detailTransfer->location;
-        // $this->contact = $this->detailTransfer->contact;
-        // $this->transfer_date = $this->detailTransfer->transfer_date;
+        $this->detailTransfer = BloodTransfer::find($id);
 
+        if ($this->detailTransfer) {
+            $patientId = $this->detailTransfer->patient_id;
+
+            // Fetch PatientCollection record based on patient_id
+            $patientRecord = PatientCollection::where('patient_id', $patientId)->first();
+
+            if ($patientRecord) {
+                // Accessing the fields from PatientCollection
+                $this->patient_id = $patientRecord->patient_id;
+                $this->patient_full_name = $patientRecord->patient_full_name;
+                $this->date = $patientRecord->date;
+                $this->phone_number = $patientRecord->phone_number;
+                $this->gender = $patientRecord->gender;
+                $this->required_blood_group = $patientRecord->required_blood_group;
+                $this->location = $patientRecord->location;
+                $this->contact = $patientRecord->contact;
+                $this->transfer_date = $patientRecord->transfer_date;
+                // You might assign other fields similarly if needed
+            } else {
+                // Handle the case where PatientCollection with the given patient_id is not found
+                // Set default values or show an error message
+                $this->patient_id = '';
+                $this->patient_full_name = '';
+                $this->date = '';
+                $this->phone_number = '';
+                $this->gender = '';
+                $this->required_blood_group = '';
+                $this->location = '';
+                $this->contact = '';
+                $this->transfer_date = '';
+                // Handle other fields similarly if needed
+            }
+        } else {
+            // Handle the case where the BloodTransfer record with the given ID is not found
+            // Set default values or show an error message
+            $this->patient_full_name = '';
+            $this->date = '';
+            $this->phone_number = '';
+            $this->gender = '';
+            // Handle other fields similarly if needed
+        }
     }
 
-    // public function openModalUpdate($id){
-    //     $this->updateModal = true;
-    //     $this->transfer = BloodRequest::find($id);
-    //     $this->transfer_id = $this->transfer->transfer_id;
-    //     $this->transfer_date = $this->transfer->transfer_date;
-    //     $this->location = $this->transfer->location;
-    //     $this->required_blood_group = $this->transfer->required_blood_group;
-    // }
-
     public function delete($id){
-        $Transfer = BloodTransfer::find($id);
-        $Transfer->delete();
-        $this->transfer_id = $this->Transfer->transfer_id;
-        $this->transfer_date = $this->Transfer->transfer_date;
-        $this->location = $this->Transfer->location;
-        $this->required_blood_group = $this->Transfer->required_blood_group;
-        $this->patient_id = $this->Transfer->patient_id;
-        $this->blood_id = $this->Transfer->blood_id;
+        $transfer = BloodTransfer::find($id);
 
-        $this->dialog([
-            'title'       => 'Data Deleted!',
-            'description' => 'Data was successfully deleted',
-            'icon'        => 'success'
-        ]);
+        if ($transfer) {
+            $transfer->delete();
+            $this->dialog([
+                'title'       => 'Data Deleted!',
+                'description' => 'Data was successfully deleted',
+                'icon'        => 'success'
+            ]);
+        } else {
+            // Handle the case where the BloodTransfer with the given ID is not found
+            $this->dialog([
+                'title'       => 'Error!',
+                'description' => 'Blood Transfer not found',
+                'icon'        => 'error'
+            ]);
+        }
     }
 
     public function render()
     {
-        $Transfer = BloodTransfer::all();
+        $transfer = BloodTransfer::all();
 
         return view('livewire.view-blood-request.view-blood-request-page', [
-            'datatransfer' =>    $Transfer,
+            'datatransfer' =>    $transfer,
 
         ])->extends('layouts.main');
     }

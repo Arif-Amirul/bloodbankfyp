@@ -34,7 +34,6 @@ class BloodTestPage extends Component
             ->value('donor_information.blood_group');
     }
 
-
     public function create() {
 
         $this->validate([

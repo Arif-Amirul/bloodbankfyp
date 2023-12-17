@@ -77,11 +77,11 @@ class ViewDonorPage extends Component
         ]);
         $this->updateModal = false;
 
-        $this->dialog([
-            'title'       => 'Data Updated!',
-            'description' => 'Data was successfully updated',
-            'icon'        => 'success'
-        ]);
+        // $this->dialog([
+        //     'title'       => 'Data Updated!',
+        //     'description' => 'Data was successfully updated',
+        //     'icon'        => 'success'
+        // ]);
     }
 
     public function delete($id){

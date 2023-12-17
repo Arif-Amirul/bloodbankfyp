@@ -15,8 +15,8 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            <x-input label="Donation ID" placeholder="donation id" wire:model.defer="donation_id" />
             <x-input type="date" label="Donation Date" wire:model.defer="donation_date" />
+            <x-input label="Donation ID" placeholder="donation id" wire:model.defer="donation_id" />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
