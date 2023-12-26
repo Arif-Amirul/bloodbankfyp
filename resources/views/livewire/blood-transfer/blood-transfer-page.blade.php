@@ -51,7 +51,7 @@
                             <option value="{{ $bloodId }}">{{ $bloodId }} - {{ $bloodStatus }}</option>
                         @endforeach
                 </select>
-                @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror
+                {{-- @error('blood_id') <span class="text-red-500">{{ $message }}</span> @enderror --}}
             </div>
         </div>
 

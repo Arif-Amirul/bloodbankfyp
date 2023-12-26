@@ -28,7 +28,7 @@
             <x-select
                 label="HIV Test"
                 placeholder="select result"
-                :options="['Positive', 'Negative']"
+                :options="['Negative','Positive']"
                 wire:model.defer="hiv_test"
             />
         </div>

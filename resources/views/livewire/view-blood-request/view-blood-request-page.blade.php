@@ -81,9 +81,9 @@
 
                     <!--VIEW DETAIL -->
                     <div>
-                        <x-modal.card title="DETAILS" blur wire:model.defer="details" max-width="9xl">
+                        <x-modal.card title="DETAILS" blur wire:model.defer="details">
                             <div>
-                                <x-table.table>
+                                {{-- <x-table.table>
                                     <x-slot name="thead">
                                                 <x-table.table-header class="text-center" value="Patient ID" sort="" />
                                                 <x-table.table-header class="text-center" value="Patient Full Name" sort="" />
@@ -127,12 +127,57 @@
                                                     </x-table.table-body>
                                                 </tr>
                                     </x-slot>
-                                </x-table.table>
+                                </x-table.table> --}}
+                                <table class="border-collapse w-full">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="py-2 px-4 border" colspan="2">Patient Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Patient ID</td>
+                                            <td class="py-2 px-4 border text-center">{{$patient_id}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Patient Full Name</td>
+                                            <td class="py-2 px-4 border text-center">{{$patient_full_name}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Blood Group</td>
+                                            <td class="py-2 px-4 border text-center">{{$required_blood_group}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Birth Date</td>
+                                            <td class="py-2 px-4 border text-center">{{$date}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Phone Number</td>
+                                            <td class="py-2 px-4 border text-center">{{$phone_number}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Gender</td>
+                                            <td class="py-2 px-4 border text-center">{{$gender}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Location</td>
+                                            <td class="py-2 px-4 border text-center">{{$location}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Contact</td>
+                                            <td class="py-2 px-4 border text-center">{{$contact}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Transfer Date</td>
+                                            <td class="py-2 px-4 border text-center">{{$transfer_date}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                             <x-slot name="footer">
                                 <div class="flex justify-end gap-x-4">
                                     <x-button flat label="Close" x-on:click="close" />
-                                    <x-button primary x-on:click="generatePDF" label="Generate PDF Report" />
                                 </div>
                             </x-slot>
                         </x-modal.card>

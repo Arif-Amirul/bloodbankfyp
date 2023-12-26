@@ -92,11 +92,11 @@
                     </x-modal.card>
                 <div>
 
-                 <!--MORE INFO-->
+                <!--MORE INFO-->
                 <div>
-                    <x-modal.card title="DETAILS" blur wire:model.defer="viewMoreModal" max-width="9xl">
+                    <x-modal.card title="DETAILS" blur wire:model.defer="viewMoreModal">
                         <div>
-                            <x-table.table>
+                            {{-- <x-table.table>
                                 <x-slot name="thead">
                                         <x-table.table-header class="text-center" value="Birth Date" sort="" />
                                         <x-table.table-header class="text-center" value="Phone Number" sort="" />
@@ -123,7 +123,37 @@
                                             </x-table.table-body>
                                         </tr>
                                     </x-slot>
-                            </x-table.table>
+                            </x-table.table> --}}
+                            <table class="border-collapse w-full">
+                                <thead>
+                                    <tr class="bg-gray-200">
+                                        <th class="py-2 px-4 border" colspan="2">Patient Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border">
+                                        <td class="py-2 px-4 border text-center">Date</td>
+                                        <td class="py-2 px-4 border text-center">{{$date}}</td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td class="py-2 px-4 border text-center">Phone Number</td>
+                                        <td class="py-2 px-4 border text-center">{{$phone_number}}</td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td class="py-2 px-4 border text-center">Gender</td>
+                                        <td class="py-2 px-4 border text-center">{{$gender}}</td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td class="py-2 px-4 border text-center">Contact</td>
+                                        <td class="py-2 px-4 border text-center">{{$contact}}</td>
+                                    </tr>
+                                    <tr class="border">
+                                        <td class="py-2 px-4 border text-center">Transfer Date</td>
+                                        <td class="py-2 px-4 border text-center">{{$transfer_date}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                         <x-slot name="footer">
                             <div class="flex justify-end gap-x-4">

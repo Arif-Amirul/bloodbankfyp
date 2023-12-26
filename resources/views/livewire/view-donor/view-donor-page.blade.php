@@ -48,9 +48,9 @@
 
                 <!--VIEW DETAILS-->
                 <div>
-                    <x-modal.card title="DETAILS" blur wire:model.defer="viewMoreModal" max-width="9xl">
+                    <x-modal.card title="DETAILS" blur wire:model.defer="viewMoreModal">
                             <div>
-                                <x-table.table>
+                                {{-- <x-table.table>
                                     <x-slot name="thead">
                                         <x-table.table-header class="text-center" value="Marital Status" sort="" />
                                         <x-table.table-header class="text-center" value="Date" sort="" />
@@ -90,7 +90,49 @@
                                             </x-table.table-body>
                                         </tr>
                                     </x-slot>
-                                </x-table.table>
+                                </x-table.table> --}}
+                                <table class="border-collapse w-full">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="py-2 px-4 border" colspan="2">Donor Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Marital Status</td>
+                                            <td class="py-2 px-4 border text-center">{{$marital_status}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Date</td>
+                                            <td class="py-2 px-4 border text-center">{{$date}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Gender</td>
+                                            <td class="py-2 px-4 border text-center">{{$gender}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Race</td>
+                                            <td class="py-2 px-4 border text-center">{{$race}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Street Address</td>
+                                            <td class="py-2 px-4 border text-center">{{$street_address}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">City</td>
+                                            <td class="py-2 px-4 border text-center">{{$city}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">State</td>
+                                            <td class="py-2 px-4 border text-center">{{$state}}</td>
+                                        </tr>
+                                        <tr class="border">
+                                            <td class="py-2 px-4 border text-center">Postal Code</td>
+                                            <td class="py-2 px-4 border text-center">{{$postal_code}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                             <x-slot name="footer">
                                     <div class="flex justify-end gap-x-4">
